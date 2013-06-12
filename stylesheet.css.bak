@@ -1,0 +1,675 @@
+.centered  {
+
+	margin-left:auto;
+
+	margin-right:auto;
+
+}
+
+body  {
+
+	background-color:#d0e0eb;
+
+	margin-top:0px;
+
+}
+
+#main {
+
+	width:950px;
+
+	overflow:auto; /*The height auto expands depending on its content.*/
+
+}
+
+#banner {
+
+	background:url(horz.png) -0px -0px;
+
+	background-repeat:repeat-x;
+
+	
+
+	border-color:#557993;
+
+	border-width: 0px 1px 0px 1px;
+
+	border-style:solid;
+
+	
+
+	height:174px;
+
+	width:auto;
+
+	
+
+	position:relative;
+
+}
+
+#bannerLogo {
+
+	background:url(eaflogo.png);
+
+	height:154px;
+
+	width:154px;
+
+	
+
+	float:left;
+
+}
+
+#bannerText {
+
+	font:bold 24px sans-serif;
+
+	color:#e7f5ff;
+
+	
+
+	margin-top:20px;
+
+	
+
+	float:left;
+
+}
+
+#navigation {
+
+	background:url(horz.png) -0px -174px;
+
+	background-repeat:repeat-x;
+
+	
+
+	height:35px;
+
+	width:auto;
+
+}
+
+.navItem {
+
+	float:left;
+
+	
+
+	height:35px;
+
+	line-height: 36px;
+
+	
+
+	padding-left:16px;
+
+	padding-right:16px;
+
+
+
+	border-width:0px;
+
+	border-left:1px solid #80a7ba;
+
+	border-right:1px solid #517492;
+
+
+
+}
+
+.navItemLink {
+
+	font:bold 18px sans-serif;
+
+	color:white;
+
+	text-decoration: none
+
+}
+
+.navItem:hover {
+	background:url(horz.png) -0px -295px;
+}
+.navLeftCap:hover, .navRightCap:hover {
+	background-position: -0px -174px;
+}
+
+.right {
+
+	float:right;
+
+}
+
+.left {
+	float:left;	
+}
+
+.navLeftCap {
+
+	border-right-width:0px;
+
+	float:left;
+
+	width:0px;
+
+}
+
+.navRightCap {
+
+	border-left-width:0px;
+
+	float:right;
+
+	width:0px;
+
+}
+
+#page {
+
+	background-color:#ebf7f8;
+
+	
+
+	padding:8px;
+
+	
+
+	border-style:solid;
+
+	border-width: 0px 1px 0px 1px;
+
+	border-color:#486e87;
+
+
+	overflow:auto;
+
+}
+
+#hotItemGallery {
+
+	height:275px;
+
+	width:600px;
+
+	
+
+	border-top-left-radius:8px;
+
+	border-bottom-left-radius:8px;
+
+	
+
+	float:left;
+
+	
+
+	margin:16px;
+
+	margin-right:0px;
+
+	margin-top:12px;
+
+	margin-bottom:12px;
+
+	
+
+	position:relative;
+
+	
+
+	overflow:hidden;
+
+}
+
+.hotItemImage {
+
+	height:275px;
+
+	width:600px;
+
+	
+
+	border-top-left-radius:8px;
+
+	border-bottom-left-radius:8px;
+
+	
+
+	position:absolute;
+
+	
+
+	overflow:hidden;
+
+}
+
+.hotItemDescGallery {
+
+	height:275px;
+
+	width:300px;
+
+	
+
+	border-top-right-radius:8px;
+
+	border-bottom-right-radius:8px;
+
+	background:#3f4041;
+
+	
+
+	float:left;
+
+	
+
+	margin:15px;
+
+	margin-left:0px;
+
+	margin-top:12px;
+
+	margin-bottom:12px;
+
+	
+
+	position:relative;
+
+}
+
+.hotItemDesc {
+
+	height:275px;
+
+	width:300px;
+
+	
+
+	border-top-right-radius:8px;
+
+	border-bottom-right-radius:8px;
+
+	background:#3f4041;
+
+	
+
+	position:absolute;
+
+}
+
+.hotItemTitle {
+
+	font:18px sans-serif;
+
+	color:white;
+
+	margin:12px;
+
+	margin-bottom:0px;
+
+}
+
+.hotItemDetails {
+
+	font:12px sans-serif;
+
+	color:#999999;
+
+	margin:12px;
+
+}
+
+.hotItemTime {
+
+	font:14px sans-serif;
+
+	color:white;
+
+	position:absolute;
+
+	bottom:0px;
+
+	margin:18px;
+
+}
+
+.hotItemBlips {
+
+	height:24px;
+
+	
+
+	overflow:auto;
+
+	
+
+	background-color:rgba(0, 0, 0, 0.3);
+
+	
+
+	border-top-right-radius:5px;
+
+	
+
+	position:absolute;
+
+	bottom:0px;
+
+}
+
+.hotItemBlip {
+
+	height:11px;
+
+	width:11px;
+
+	
+
+	cursor:pointer;
+
+	
+
+	background:url(horz.png) -0px -273px;
+
+	background-repeat:repeat-x;
+
+	
+
+	border-radius:5px;
+
+	margin:4px;
+
+	margin-top:6px;
+
+	float:left;
+
+}
+
+.hotItemBlipSelected {
+
+	background:url(horz.png) -0px -284px;
+
+}
+
+.bidNow {
+
+	height:27px;
+
+	width:110px;
+
+	
+
+	cursor:pointer;
+
+	
+
+	border-radius:5px;
+
+	
+
+	background:url(horz.png) -0px -246px;
+
+	background-repeat:repeat-x;
+
+	
+
+	font:16px sans-serif;
+
+	color:white;
+
+
+
+	position:absolute;
+
+	bottom:0px;
+
+	right:0px;
+
+	
+
+	margin:12px;
+
+	
+
+	line-height: 27px;
+
+	text-align:center;
+
+}
+
+.itemPrev {
+
+	margin:30px;
+
+	margin-top:12px;
+
+	margin-bottom:12px;
+
+	
+
+	height:250px;
+
+	width:250px;
+
+	float:left;
+
+	
+
+	background-color:white;
+
+	text-decoration: none
+
+}
+
+.itemPrevTitle {
+
+	top:0px;
+
+	height:32px;
+
+	background-color:#5a7f9b;
+
+	opacity:0.85;
+
+}
+
+.itemPreviewTitleText {
+
+	padding-left:8px;
+
+	position:relative;
+
+	top:-26px;
+
+	font:14px sans-serif;
+
+	color:white;
+
+}
+
+.twocol{
+	-moz-column-count: 2;
+    -moz-column-gap: 5px;
+    -webkit-column-count: 2;
+    -webkit-column-gap: 5px;
+    column-count: 2;
+    column-gap: 5px;	
+}
+
+.categoryListHome li{
+	padding:5px;
+	font-size:18px;
+	color:#333;
+}
+
+.categoryListHome li:nth-child(odd){
+	background-color:#d3e5f0;
+}
+
+
+#bottomBar {
+
+	background:url(horz.png) -0px -209px;
+
+	background-repeat:repeat-x;
+
+	
+
+	height:37px;
+
+	
+
+	font:14px sans-serif;
+
+	line-height:37px;
+
+	color:white;
+
+	padding-left:16px;
+
+	padding-right:16px;
+
+}
+
+.bottomBarNav {
+
+	height:37px;
+
+	float:right;
+
+}
+
+.bottomBarNav a {
+	font:14px sans-serif;
+
+	line-height:37px;
+
+	color:white;
+
+	
+
+	text-decoration:none;
+}
+
+.bottomBarNav a:hover {
+	text-decoration:underline;
+}
+
+.header  {
+
+	height:32px;
+
+	
+
+	background:url(horz.png) -0px -174px;
+
+	background-repeat:repeat-x;
+
+	
+
+	margin:16px;
+
+	margin-right:0px;
+
+	border-radius:4px;
+
+	padding-left:12px;
+
+
+	
+
+	font:bold 18px sans-serif;
+
+	color:white;
+
+	line-height: 32px;
+
+
+	float:left;
+
+}
+
+.searchBar {
+
+	width:188px;
+
+	height:28px;
+
+	border-color:white;
+
+	border-width:1px;
+
+	border-style:solid;
+
+	border-radius:1px;
+
+	padding-left:3px;
+
+	background-color:#c4d1d9;
+
+	opacity:0.5;
+
+	
+
+	float:right;
+
+	
+
+	font:18px sans-serif;
+
+	color:black;
+
+	
+
+	margin:16px;
+
+	margin-right:0px;
+
+
+
+}
+
+.searchBar:focus {
+	opacity:0.7;
+}
+
+.searchButton {
+
+	width:60px;
+
+	height:30px;
+
+	border-color:white;
+
+	border-width:1px;
+
+	border-style:solid;
+
+	border-radius:1px;
+
+	
+
+	font:16px sans-serif;
+
+	line-height:32px;
+
+	color:white;
+
+	text-align:center;
+
+	
+
+	background-color:#787878;
+
+	float:right;
+
+	
+
+	margin:16px;
+
+	margin-left:8px;
+
+}

@@ -1,3 +1,7 @@
+*{
+	margin:0px;
+	padding:0px;
+	}
 .centered  {
 
 	margin-left:auto;
@@ -38,7 +42,7 @@ body  {
 
 	
 
-	height:174px;
+	height:155px;
 
 	width:auto;
 
@@ -497,6 +501,10 @@ body  {
     -webkit-column-gap: 5px;
     column-count: 2;
     column-gap: 5px;	
+	
+}
+.categoryListHome {
+	width:580px;
 }
 
 .categoryListHome li{
@@ -516,11 +524,7 @@ body  {
 
 	background-repeat:repeat-x;
 
-	
-
 	height:37px;
-
-	
 
 	font:14px sans-serif;
 
@@ -548,47 +552,66 @@ body  {
 	line-height:37px;
 
 	color:white;
-
 	
-
 	text-decoration:none;
 }
 
 .bottomBarNav a:hover {
 	text-decoration:underline;
+	color:#fff;
 }
 
 .header  {
-
 	height:32px;
-
-	
 
 	background:url(horz.png) -0px -174px;
 
 	background-repeat:repeat-x;
 
-	
+	width:100%;
 
-	margin:16px;
-
-	margin-right:0px;
+	margin-bottom:8px;
 
 	border-radius:4px;
 
 	padding-left:12px;
-
-	
 
 	font:bold 18px sans-serif;
 
 	color:white;
 
 	line-height: 32px;
+}
 
+.box580 {
+	width:580px;
+	margin-left:16px;
+}
 
-	float:left;
+.box280 {
+	width:280px;	
+	margin-left:28px;
+	
+}
+.box280 h1 {
+	font-size:16px;	
+	padding-left:6px;
+	color:#222;
+}
+.box280 p{
+	font-size:14px;
+	padding-left:6px;
+	margin-bottom:1em;
+	
+}
 
+#page a {
+	color:#294251;	
+	text-decoration:none;
+}
+#page a:hover {
+	color:#698ea6;
+	text-decoration:underline;	
 }
 
 .searchBar {
