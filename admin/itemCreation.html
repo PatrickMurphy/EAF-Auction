@@ -1,0 +1,465 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html>	
+
+<head>
+
+	<title>AEF Create Item</title>
+	
+	<script src="jquery-1.10.0.min.js"></script>
+	
+	<script src="javascript.js" type="text/javascript"></script>
+	
+	<link href="stylesheet.css" rel="stylesheet" type="text/css"/>
+
+	<script>
+	
+		/** Displays the custom bid-increment text fields.
+		  * @param {String} Value of the html 'select' object.
+		  * @return {Boolean} If the value is 'custom' return true, otherwise false.
+		  */
+		function isCustomInc(value) {
+			if ("custom" == value)
+				$(".custInc").css("visibility","visible");
+			else 
+				$(".custInc").css("visibility","hidden");
+				
+			return "custom" == value;
+		}
+		
+		/** Validates each of the 5 custom bid-increment fields.
+		  * @return {Boolean} Returns true if all 5 fields are valid, false otherwise.
+		  */
+		function validateCustInc() {
+			// Clear the error text.
+			$("#custIncError").empty();
+			var isValid = true;
+			for (i = 0; i < $(".incField").length; i++)
+				if (!validateMoney($(".incField").eq(i).get(0))) {
+					// Display the error message.
+					$("#custIncError").text("Not a number.");
+					isValid = false;
+				}
+				
+			return isValid;
+		}
+		
+		/** Validates the 'Retail Value' field.
+		  * @return {Boolean} Returns true if the field is valid, false otherwise.
+		  */
+		function validateRetailValue() {
+			$("#retailValueError").empty();
+			var isValid = true;
+			if (!validateMoney($("#retailValue").get(0))) {
+				$("#retailValueError").text("Not a number.");
+				isValid = false;
+			}
+			
+			return isValid;
+		}
+
+		/** Validates a text field that accepts a dollar amount.
+		  * @param {HTML Object} object.
+		  * @return {Boolean} Returns true if the field is valid, false otherwise.
+		  */
+		function validateMoney(object) {
+			// Remove the '$' symbol if the user entered it.
+			if ('$' == object.value[0]) {
+				var string = new String(object.value);
+				object.value = string.substr(1);
+			}
+			
+			// Verify the input is an actual number.
+			return invalidateField(object, !isNaN(object.value))
+		}
+		
+		/** Adds the 'invalid' class to the object is isValid is false (giving the object a red border), removes the 'invalid' class otherwise.
+		  * @param {HTML Object} object.
+		  * @param {Boolean} isValid.
+		  * @return {Boolean} Return isValid.
+		  */
+		function invalidateField(object, isValid) {
+			// Create a jQuery object to access the class functions.
+			object = $(object);
+			
+			if (isValid) 
+				object.removeClass("invalid");
+			else 
+				object.addClass("invalid");
+			
+			return isValid;
+		}
+
+		/** Returns whether or not the string contains a valid time format (hh:mm).
+		  * @param {String} string.
+		  * @return {Boolean}
+		  */
+		function isValidTime(string) {
+			return RegExp("^([0-9]{1,2})[^(0-9){1}]([0-9]{0,2})$").test(string);
+		}
+		
+		/** Returns whether or not the string contains a valid date format (mm/dd/yyyy).
+		  * @param {String} string. 
+		  * @return {Boolean}
+		  */
+		function isValidDate(string) {
+			return RegExp("^([0-9]{1,2})[^(0-9)]([0-9]{1,2})[^(0-9)]([0-9]{2,4})$").test(string);
+		}
+		
+		/** Validates a text field that accepts a date string.
+		  * @param {HTML Object} object.
+		  * @return {Boolean} Returns true if the date is valid, false otherwise.
+		  */
+		function validateDate(object) {
+			$("#" + object.id +"Error").empty();
+			var isValid = true;
+			if (!invalidateField($("#"+object.id), isValidDate(object.value))) {
+				$("#" + object.id +"Error").text("Invalid Date.");
+				isValid = false;
+			}
+			
+			return isValid;
+		}
+		
+		/** Validates a text field that accepts a time string.
+		  * @param {HTML Object} object.
+		  * @return {Boolean} Returns true if the time is valid, false otherwise.
+		  */
+		function validateTime(object) {
+			$("#" + object.id +"Error").empty();
+			var isValid = true;
+			if (!invalidateField($("#"+object.id), isValidTime(object.value))) {
+				$("#" + object.id +"Error").text("Invalid Time.");
+				isValid = false;
+			}
+			
+			return isValid;
+		}
+		
+		/** Queries the server if the closing time slot is available (i.e. has 10 or less items closing within 10 minutes of the selected time).
+		  * @param {String} date string + time string + AM|PM 
+		  * @return {Boolean} Returns true if the slot is open, false otherwise.
+		  */
+		function isAvailableEndTimeSlot(timeDateString) {
+			// TODO: AJAX STUFF
+			return false; // Stand-in for actual function.
+		}
+		
+		/** Determines whether or not the closing time slot is available, displays a warning message if not. */
+		function validateEndTimeSlot() {
+			if (isAvailableEndTimeSlot("")) {
+				$("#endTimeWarning").clear();
+			}
+			else
+				$("#endTimeWarning").text("Ten items are set to close at this time.");
+		}
+		
+		/** Finds the nearest open closing time-slot to the one currently entered in the end-time input field, and places it in the input field */
+		function generateEndTime() {
+			// TODO: AJAX STUFF
+			$("#endTime").get(0).value = Math.floor(Math.random() * 12 + 1) + ":" + Math.floor(Math.random()*5) + "0"; // Stand-in for actual function.
+		}
+		
+		/** Generates an item ID that hasn't already been entered into the database. */
+		function generateUniqueID() {
+			// TODO: AJAX STUFF
+			$("#itemID").get(0).value = Math.floor(Math.random() * 100000); // Stand-in for actual function.
+		}
+		
+		/** Validates each form for submission. */
+		function validateCreateItem() {
+			// Title.
+			$("#titleError").text("");
+			if (!invalidateField($("#title").get(0),$("#title").get(0).value != "")) {
+				$("#titleError").text("Item must have a title.");
+			}
+			
+			// Retail Value.
+			if (validateRetailValue()){}
+			
+			// Start time.
+			if (validateDate($("#startDate").get(0))){}		
+			if (validateTime($("#startTime").get(0))){}
+			
+			// End Time.
+			if (validateDate($("#endDate").get(0))){}
+			if (validateTime($("#endTime").get(0))){}
+			
+			// Bid Increments.
+			if (isCustomInc($("#bidInc").get(0).value)){}
+		}
+		
+		
+		function navPanel(object) {
+			$(object).next().slideToggle();
+		}
+		
+		function hideMenus() {
+			$(".menu").hide(0);
+		}
+	</script>
+	
+</head>
+<body onload="hideMenus();">
+
+	<div id="main">
+	
+		<div id="adminBanner">
+		
+			<div id="adminBannerLogo"></div>
+			
+			<div id="adminBannerText">AEF Admin</div>
+			
+			<div id="searchButton">Search</div>
+			
+			<input id="searchBar" type="text"></input>
+			
+		</div>
+		
+		<div id="navigation">
+
+			<a class="left" href="index.html">Home</a>
+
+			<a class="left" href="index.html">Browse</a>
+
+			<a class="left" href="index.html">News</a>
+
+			<span class="navCapLeft left" ></span>
+
+			
+
+			<a class="right" href="index.html">Register</a>
+
+			<a class="right" href="index.html">Login</a>
+			
+			<span class="navCapRight right" ></span>
+
+		</div>
+		
+		<div id="page">
+		
+		<div class="navPanel column">
+		
+		<div class="navPanelHeader">Admin</div>
+				
+				<div onclick="navPanel(this)">User Management</div>
+				<div class="menu">
+					<a href="">View All Users</a><br/>
+					<a href="">View User Details</a><br/>
+					<a href="">Add User</a><br/>
+					<a href="">Edit User</a><br/>
+				</div>
+				
+				
+				<div onclick="navPanel(this)">Item Management</div>
+				<div class="menu">
+					<a href="">Create Items</a><br/>
+					<a href="">View Items</a><br/>
+					<a href="">Edit Item</a><br/>
+					<a href="">Hot Items</a><br/>
+				</div>
+				
+				<div onclick="navPanel(this)">Category Management</div>
+				<div class="menu">
+					<a href="">Create Category</a><br/>
+					<a href="">View Category</a><br/>
+					<a href="">Edit Category</a><br/>
+				</div>
+				
+				<div onclick="navPanel(this)">Reports & Archives</div>
+				<div class="menu">
+					<a href="">View Statistics</a><br/>
+					<a href="">View Archives</a><br/>
+				</div>
+				
+				<div onclick="navPanel(this)">Site Configuration</div>
+				
+		</div>
+		
+		<div class="formPanel column">
+		
+			<div class="formPanelHeader">Create Item</div>
+
+			<!-- Title Input -->
+			<label for="title">Title</label>
+			<br/>
+			
+			<input id="title" type="text" style="width:480px;"></input> 
+			
+			<span id="titleError" class="errorMsg"></span>
+			
+			<br/>
+			<!-- Description Input -->
+			<label for="description">Description</label>
+			<br/>
+			
+			<textarea id="description" rows="8" style="width:476px;"></textarea>
+			
+			<br/>
+
+			<!-- Field Titles -->
+			<div class="column" style="line-height:33px;">
+			
+				<label for="company">Company</label>
+				<br/>
+				<label for="retailValue">Retail Value</label>
+				<br/>
+				<label for="startDate">Start Date</label>
+				<br/>
+				<label for="endDate">End Date</label>
+				<br/>
+				<br/>
+				<label for="itemID">Item ID #</label>
+				<br/>
+				
+			</div>
+			<!-- Input Fields -->
+			<div class="column" style="line-height:28px;">
+				<!-- Comapny Name Input and Comapny Website Input -->
+				<input id="company" type="text" style="margin-right:36px;"></input><label for="companyWebsite">Website</label><input id="companyWebsite" style="margin-left:8px;" type="text"></input>
+				
+				<br/>
+				<!-- Retail Value Input -->
+				$<input id="retailValue" class="dollar" onchange="validateRetailValue();" type="text" size="5" name="retailValue"></input>
+				
+				<span id="retailValueError" class="errorMsg"></span>
+				
+				<br/>
+				<!-- Start Time/Date Input -->
+				
+				<input id="startDate" onchange="validateDate(this)" placeholder="mm/dd/yyyy" type="text" value="10/14/2013" size="8"></input>
+				
+				<input id="startTime" onchange="validateTime(this)" placeholder="hh:mm" type="text" value="12:00" size="3"></input>
+				
+				<select><option value="AM">AM</option><option value="PM">PM</option></select>
+				
+				<!-- Start Time/Date Error -->
+			
+				<span id="startDateError" class="errorMsg"></span>
+				
+				<span id="startTimeError" class="errorMsg"></span>
+				
+				<br/>
+				
+				<!-- End Time/Date Input -->
+				
+				<input id="endDate" onchange="if(validateDate(this))validateEndTimeSlot();" placeholder="mm/dd/yyyy" type="text" value="11/01/2013" size="8" style=""></input>
+				
+				<input id="endTime" onchange="if(validateTime(this))validateEndTimeSlot();" placeholder="hh:mm" type="text" value="12:00" size="3" style=""></input>
+				
+				<select><option value="AM">AM</option><option value="PM">PM</option></select>
+				
+				<!-- Generate End Time Button -->
+				
+				<span class="button blue small" onclick="generateEndTime();" title="Chooses an available time slot nearest the one currently in the 'End Time' text field.">Generate End Time</span>
+				
+				<!-- End Time/Date Error -->
+				
+				<br/>
+				
+				<span id="endDateError" class="errorMsg"></span>
+				
+				<span id="endTimeError" class="errorMsg"></span>
+				
+				<span id="endTimeWarning" class="warningMsg"></span>
+				
+				<br/>
+				
+				<!-- Item ID Input -->
+				
+				<input id="itemID" type="text" size="5"></input>
+				
+				<span class="button blue small" onclick="generateUniqueID();" title="Generates a unique ID number not currently in the database.">Generate Unique ID</span>
+				
+				<br/>
+				
+				<!-- Item ID Error -->
+				
+				<span id="idError" class="errorMsg"></span>
+			
+			</div>
+			
+			<br/>
+			<br/>
+			
+			<!-- Bid Increment Selector -->
+			<label for="bidInc">Bid Increments</label>
+			
+			<br/>
+			
+			<select id="bidInc" onchange="isCustomInc(this.value);" >
+				
+				<option value="0">$1, $3, $5, $10, $50</option>
+				
+				<option value="1">$5, $10, $20, $50, $100</option>
+				
+				<option value="2">$10, $25, $50, $100, $250</option>
+				
+				<option value="3">$50, $100, $250, $500, $1000</option>
+				
+				<option value="custom">Custom...</option>
+			
+			</select>
+			<!-- Custom Increment Text Fields -->
+			<br/>
+			
+			<span class="custInc" style="visibility:hidden;">
+				
+				$<input class="dollar incField" onchange="validateCustInc();" type="text" size="3"></input>
+				
+				$<input class="dollar incField" onchange="validateCustInc();" type="text" size="3"></input>
+				
+				$<input class="dollar incField" onchange="validateCustInc();" type="text" size="3"></input>
+				
+				$<input class="dollar incField" onchange="validateCustInc();" type="text" size="3"></input>
+				
+				$<input class="dollar incField" onchange="validateCustInc();" type="text" size="3"></input>
+				
+				<!-- Custom Increment Error -->
+				
+				<span id="custIncError" class="errorMsg" ></span>
+			
+			</span>
+			
+			<br/>
+			<br/>
+			
+			<!-- Misc -->
+			
+			<label for="misc">Misc</label>
+			
+			<br/>
+			<span id="misc">
+			<input id="shippable" type="checkbox" /><span>Shippable</span>
+			
+			<input id="used" type="checkbox" /><span>Used</span>
+            </span>
+			
+			<br/>
+			<br/>
+			<br/>
+			
+			<!-- Form Buttons -->
+			
+			<span class="button yellow medium">Save as Draft</span>
+			
+			<span class="button orange medium" onclick="validateCreateItem()">Submit</span>
+			
+			<span class="button orange medium" onclick="validateCreateItem()" title="Submits the item, but reloads the page with the same information, allowing identical or similiar items to be created with only minor changes.">Submit and keep form data</span>
+			
+			<span class="button green medium">Preview</span>
+			
+			<br/>
+
+		</div>
+		
+	</div>
+	
+	<div id="bottomBar"> © Alaska Airlines Employee Assistance Fund 2013. All Rights Reserved.
+	
+		<span class="bottomBarNav"><a href="">News</a> | <a href="">Browse</a> | <a href="">Home</a></span>
+		
+	</div>
+
+</body>
+
+</html>

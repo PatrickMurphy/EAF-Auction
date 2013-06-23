@@ -34,19 +34,19 @@
 
 		<div id="navigation">
 
-			<div class="navItem"><a class="navItemLink" href="index.html">Home</a></div>
+			<div class="navItem"><a class="navItemLink" href="index.php">Home</a></div>
 
-			<div class="navItem"><a class="navItemLink" href="index.html">Browse</a></div>
+			<div class="navItem"><a class="navItemLink" href="categories.php">Browse</a></div>
 
-			<div class="navItem"><a class="navItemLink" href="index.html">News</a></div>
+			<div class="navItem"><a class="navItemLink" href="news.php">News</a></div>
 
 			<a class="navItem navLeftCap"></a>
 
 			
 
-			<div class="navItem right" ><a class="navItemLink" href="index.html">Register</a></div>
+			<div class="navItem right" ><a class="navItemLink" href="register.php">Register</a></div>
 
-			<div class="navItem right" ><a class="navItemLink" href="index.html">Login</a></div>
+			<div class="navItem right" ><a class="navItemLink" href="login.php">Login</a></div>
 
 			<a class="navItem navRightCap" ></a>
 
@@ -171,43 +171,43 @@
 			</div>
 
 			<br style="clear:both;" />
-			<div class="box580 left">
-				<div class="header" style="width:100%;">Categories</div>
+			<div class="box580 left" style="margin-left:16px;">
+				<h1 class="header" style="width:100%;">Categories</h1>
             	<ul class="twocol categoryListHome">
-            		<li><a href="#">Alaska</a></li>
-                    <li><a href="#">California</a></li>
-                    <li><a href="#">Dining Out</a></li>
-                    <li><a href="#">Electronics</a></li>
-                    <li><a href="#">Food and Wine</a></li>
-                    <li><a href="#">Handmade</a></li>
-                    <li><a href="#">Home and Garden</a></li>
-                    <li><a href="#">Mexico</a></li>
-                    <li><a href="#">Personal Goods</a></li>
-                    <li><a href="#">Portland Area</a></li>
-                    <li><a href="#">Software & Games</a></li>
-                    <li><a href="#">Vacations</a></li>
-                    <li><a href="#">Art</a></li>
-                    <li><a href="#">Clothing</a></li>
-                    <li><a href="#">Eastern Washington</a></li>
-                    <li><a href="#">Entertainment</a></li>
-                    <li><a href="#">Gift Baskets</a></li>
-                    <li><a href="#">Hawaii</a></li>
-                    <li><a href="#">Jewelry</a></li>
-                    <li><a href="#">Music</a></li>
-                    <li><a href="#">Personal Services</a></li>
-                    <li><a href="#">Seattle Area</a></li>
-                    <li><a href="#">Sports Equipment & Events</a></li>
+            		<li><a href="categories.php?categoryId=01">Alaska</a></li>
+                    <li><a href="categories.php?categoryId=01">California</a></li>
+                    <li><a href="categories.php?categoryId=01">Dining Out</a></li>
+                    <li><a href="categories.php?categoryId=01">Electronics</a></li>
+                    <li><a href="categories.php?categoryId=01">Food and Wine</a></li>
+                    <li><a href="categories.php?categoryId=01">Handmade</a></li>
+                    <li><a href="categories.php?categoryId=01">Home and Garden</a></li>
+                    <li><a href="categories.php?categoryId=01">Mexico</a></li>
+                    <li><a href="categories.php?categoryId=01">Personal Goods</a></li>
+                    <li><a href="categories.php?categoryId=01">Portland Area</a></li>
+                    <li><a href="categories.php?categoryId=01">Software & Games</a></li>
+                    <li><a href="categories.php?categoryId=01">Vacations</a></li>
+                    <li><a href="categories.php?categoryId=01">Art</a></li>
+                    <li><a href="categories.php?categoryId=01">Clothing</a></li>
+                    <li><a href="categories.php?categoryId=01">Eastern Washington</a></li>
+                    <li><a href="categories.php?categoryId=01">Entertainment</a></li>
+                    <li><a href="categories.php?categoryId=01">Gift Baskets</a></li>
+                    <li><a href="categories.php?categoryId=01">Hawaii</a></li>
+                    <li><a href="categories.php?categoryId=01">Jewelry</a></li>
+                    <li><a href="categories.php?categoryId=01">Music</a></li>
+                    <li><a href="categories.php?categoryId=01">Personal Services</a></li>
+                    <li><a href="categories.php?categoryId=01">Seattle Area</a></li>
+                    <li><a href="categories.php?categoryId=01">Sports Equipment & Events</a></li>
             	</ul>
             </div>
 
-			<div class="left box280">
-				<div class="header" style="width:100%;">News</div>
+			<div class="left recentNews box280" style="margin-left:28px;">
+				<h1 class="header" style="width:100%;">News</h1>
                 <h1>We made $110,000 This Year!</h1>
-                <p>Thank you all so much for making this a great year in spite of the difficulties. We are working on sending the email/invoices out - be patient, there's a lot of them. <a href="#" class="right">Read More</a></p>
+                <p>Thank you all so much for making this a great year in spite of the difficulties. We are working on sending the email/invoices out - be patient, there's a lot of them. <a href="news.php" class="right">Read More</a></p>
                 <h1>Personal Thank You for 13 Years</h1>
-                <p>This is my last year working for the EAF on this auction.  I want to offer my sincere thanks to all of our bidders, our donors, the employees of Alaska Airlines, the Board and staff of the EAF, and the...  <a href="#" class="right">Read More</a></p>
+                <p>This is my last year working for the EAF on this auction.  I want to offer my sincere thanks to all of our bidders, our donors, the employees of Alaska Airlines, the Board and staff of the EAF, and the...  <a href="news.php" class="right">Read More</a></p>
                 <h1>Pickup and Payment Info</h1>
-                <p>This year’s auction made over $110,000!  Another amazing year.  Thank you all so much.  We didn’t hit our $1M mark, so I expect you all to come back and bid some... <a href="#" class="right">Read More</a></p>
+                <p>This year’s auction made over $110,000!  Another amazing year.  Thank you all so much.  We didn’t hit our $1M mark, so I expect you all to come back and bid some... <a href="news.php" class="right">Read More</a></p>
              </div>
 
 		</div>
@@ -216,7 +216,7 @@
 
 		<div id="bottomBar"> © Alaska Airlines Employee Assistance Fund 2013. All Rights Reserved.
 
-			<span class="bottomBarNav"><a href="">News</a> | <a href="">Browse</a> | <a href="">Home</a></span>
+			<span class="bottomBarNav"><a href="index.php">Home</a> | <a href="categories.php">Browse</a> | <a href="news.php">News</a></span>
 
 		</div>
 

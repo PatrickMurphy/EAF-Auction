@@ -15,6 +15,8 @@ body  {
 	background-color:#d0e0eb;
 
 	margin-top:0px;
+	font-family:Verdana, Geneva, sans-serif;
+	color:#333;
 
 }
 
@@ -68,7 +70,7 @@ body  {
 
 #bannerText {
 
-	font:bold 24px sans-serif;
+	font:bold 22px sans-serif;
 
 	color:#e7f5ff;
 
@@ -135,7 +137,7 @@ body  {
 }
 
 .navItem:hover {
-	background:url(horz.png) -0px -295px;
+	background:url(horz.png) -0px -209px;
 }
 .navLeftCap:hover, .navRightCap:hover {
 	background-position: -0px -174px;
@@ -144,13 +146,14 @@ body  {
 .right {
 
 	float:right;
-
 }
 
 .left {
 	float:left;	
 }
-
+li{
+	padding:3px 0;	
+}
 .navLeftCap {
 
 	border-right-width:0px;
@@ -376,7 +379,7 @@ body  {
 
 	
 
-	background:url(horz.png) -0px -273px;
+	background:url(horz.png) -0px -335px;
 
 	background-repeat:repeat-x;
 
@@ -394,7 +397,7 @@ body  {
 
 .hotItemBlipSelected {
 
-	background:url(horz.png) -0px -284px;
+	background:url(horz.png) -0px -346px;
 
 }
 
@@ -402,7 +405,7 @@ body  {
 
 	height:27px;
 
-	width:110px;
+	width:110px !important;
 
 	
 
@@ -414,7 +417,7 @@ body  {
 
 	
 
-	background:url(horz.png) -0px -246px;
+	background:url(horz.png) -0px -281px;
 
 	background-repeat:repeat-x;
 
@@ -442,6 +445,10 @@ body  {
 
 	text-align:center;
 
+}
+
+.bidNow:hover {
+	background:url(horz.png) -0px -308px;
 }
 
 .itemPrev {
@@ -509,18 +516,25 @@ body  {
 
 .categoryListHome li{
 	padding:5px;
-	font-size:18px;
+	font-size:16px;
 	color:#333;
 }
 
-.categoryListHome li:nth-child(odd){
+.categoryListHome li:nth-child(odd), .browseList li:nth-child(odd){
 	background-color:#d3e5f0;
 }
 
+.browseList {
+	list-style:none;
+}
+.browseList li {
+	padding:10px;
+	font-size:16px;
+}
 
 #bottomBar {
 
-	background:url(horz.png) -0px -209px;
+	background:url(horz.png) -0px -244px;
 
 	background-repeat:repeat-x;
 
@@ -576,33 +590,142 @@ body  {
 
 	padding-left:12px;
 
-	font:bold 18px sans-serif;
+	font:bold 18px sans-serif !important;
 
-	color:white;
+	color:white !important;
 
-	line-height: 32px;
+	line-height: 32px  !important;
+}
+
+.closedBox {
+	border: 1px solid #999;
+	border-top:0;
+	border-radius:4px;
+	padding-right:12px;
+}
+
+div.closedBox .header {
+	border-radius:4px 4px 0 0;
 }
 
 .box580 {
 	width:580px;
+}
+.boxfull {
+	width:890px;
 	margin-left:16px;
 }
 
 .box280 {
 	width:280px;	
-	margin-left:28px;
 	
 }
-.box280 h1 {
-	font-size:16px;	
+
+.loginBox {
+	width:350px;
+	height:190px;	
+	margin:auto;
+	position:relative;	
+}
+
+.loginBox div {
+	width:335px;
+	margin:10px auto;
+}
+
+.loginBox div span {
+	line-height:28px;
+	float:left;}
+.loginBox div input[type="text"], .loginBox div input[type="password"] {
+	float:right;
+	padding:4px;
+	width:200px;
+}
+.loginBox div input.bidNow {padding:inherit;right:6px;}
+
+.recentNews h1 {
+	font-size:14px;	
 	padding-left:6px;
 	color:#222;
 }
-.box280 p{
-	font-size:14px;
+.recentNews p{
+	font-size:12px;
 	padding-left:6px;
 	margin-bottom:1em;
 	
+}
+
+.news div {
+	margin:1em 0 2.5em 2em;	
+}
+
+.news div span h1 {
+	font: bold 14pt sans-serif !important;
+	display:inline-block;	
+}
+
+.news div p a:last-child {
+	background:url(horz.png) -0px -174px;	
+	color:#ededef !important;
+	line-height:32px;
+	padding: 0 6px;
+	border-radius:4px;
+	margin-top:5px;
+}
+
+.registrationAgreement {
+	margin-left:16px;		
+	font:12pt sans-serif;
+}
+
+.registrationAgreement p {
+	margin:10px 0;
+	padding-left:10px;
+	line-height:25px;
+}
+
+.registrationAgreement p span, .registrationAgreement p a {
+	font-weight:bold;	
+	padding-left:8px;
+}
+.registrationForm {
+	width:100%;
+	padding-right:12px;
+}
+.registrationForm label {
+	font-size:12pt;
+	font-weight:bold;
+	padding-left:7px;
+}
+.registrationForm input {
+	width:95%;
+	display:block;
+	margin:0 7px;
+	margin-bottom:1em;
+	padding:5px;
+	border:1px solid #888;
+	font-size:14pt;
+	background-color:#fefefe;
+}
+.registrationForm input:hover {
+	background-color:#fff;	
+}
+
+.registrationForm input[type="submit"] {
+	background-color:#5d859f;
+	background:url(horz.png) 0px -174px;
+	height:32px !important;
+	line-height:20px;
+	width:277px;
+	color:#fefefe;	
+	font-size:16pt;
+	border-radius:5px;
+	border-color:#fff;
+	margin-bottom:5px;
+}
+
+.registrationForm input[type="submit"]:hover {
+	background:url(horz.png) 0px -210px;	
 }
 
 #page a {
@@ -640,7 +763,7 @@ body  {
 
 	
 
-	font:18px sans-serif;
+	font:14pt sans-serif;
 
 	color:black;
 
@@ -674,7 +797,7 @@ body  {
 
 	
 
-	font:16px sans-serif;
+	font:12pt sans-serif;
 
 	line-height:32px;
 
@@ -694,4 +817,52 @@ body  {
 
 	margin-left:8px;
 
+}
+
+.itemsDisplay {
+	margin-left:9px; width:680px;	
+}
+
+.itemListing{
+	border-top:1px solid #000;	
+	padding-top: 3px;
+	margin-top:10px;
+	font:10pt sans-serif;
+	position:relative;
+}
+.itemListingThumbnail {
+	margin-right:8px;	
+}
+.itemListingTitle {
+	font-size:12pt;	
+	font-weight:bold;
+}
+.itemListingPriceTime {
+	position:absolute;
+	bottom:3px;
+	right:0px;
+	padding-top:5px;
+	margin-top:5px;
+	
+}
+.itemListingPriceTime span span {
+	float:right;
+	margin-left: 1.5em;	
+}
+.itemListingPriceTime span span span {
+	font-weight:bold;
+	float:left;
+	margin-right:4px;
+	}
+.itemListing:nth-child(odd){
+	background-color:#d3e5f0;
+}
+.filters input, .filters button {padding:2px;}
+.filters {width:200px;border-right:1px solid #CCC; padding-right:20px;}
+.fixedSidebar { position: fixed; top: 8px; }
+.fixedSidebarActive {padding-left:221px; }
+.paginationBar {
+	margin-top:15px;
+	background:#ddd;	
+	padding:6px;
 }
