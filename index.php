@@ -96,7 +96,7 @@
 
 				<div class="hotItemDesc">
 
-					<div class="hotItemTitle">Full Fare - Round Trip Ticket</div>
+					<div class="hotItemTitle">GIT Pull Sucessful</div>
 
 					<div class="hotItemDetails">Alaska Arilines and/or Horizon Air FULL fair, UNRESTRICTED ticket, NO Blackout dates applied.<br/><br/>Value: $1,250<br/><br/>Donated by: Alaska Airlines</div>
 
