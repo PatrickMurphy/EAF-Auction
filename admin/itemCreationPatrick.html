@@ -6,12 +6,12 @@
 	<title>AEF Create Item</title>
 	
 	<script src="jquery-1.10.0.min.js"></script>
-    <script src="jquery-1.10.0.min.js">http://code.jquery.com/ui/1.10.3/jquery-ui.js</script>
+    <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
 	
 	<script src="javascript.js" type="text/javascript"></script>
-	
+	  <link href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" rel="stylesheet" type="text/css"/>
 	<link href="stylesheet.css" rel="stylesheet" type="text/css"/>
-    <link href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" rel="stylesheet" type="text/css"/>
+  
 
 	<script>
 	
@@ -198,6 +198,7 @@
 		function hideMenus() {
 			$(".menu").hide(0);
 		}
+		
 	</script>
 	
 </head>
@@ -277,7 +278,7 @@
 				
 		</div>
 		
-		<div class="formPanel column">
+		<div class="formPanel column" >
 		
 			<div class="formPanelHeader">Create Item</div>
 
@@ -285,7 +286,7 @@
 			<label for="title">Title</label>
 			<br/>
 			
-			<input id="title" type="text" style="width:480px;"></input> 
+			<input id="title" type="text" style="width:95%;"></input> 
 			
 			<span id="titleError" class="errorMsg"></span>
 			
@@ -294,45 +295,23 @@
 			<label for="description">Description</label>
 			<br/>
 			
-			<textarea id="description" rows="8" style="width:476px;"></textarea>
+			<textarea id="description" rows="8"  style="width:95%;"></textarea>
 			
 			<br/>
 
 			<!-- Field Titles -->
-			<div class="column" style="line-height:33px;">
+			<div class="column" style="margin-right:1.5em;">
 			
 				<label for="company">Company</label>
-				<br/>
-				<label for="retailValue">Retail Value</label>
-				<br/>
+				<br/><input id="company" type="text" style="margin-right:36px;"></input><br />
+			
 				<label for="startDate">Start Date</label>
 				<br/>
-				<label for="endDate">End Date</label>
-				<br/>
-				<br/>
-				<label for="itemID">Item ID #</label>
-				<br/>
+                <!-- Start Time/Date Input -->
 				
-			</div>
-			<!-- Input Fields -->
-			<div class="column" style="line-height:28px;">
-				<!-- Comapny Name Input and Comapny Website Input -->
-				<input id="company" type="text" style="margin-right:36px;"></input><label for="companyWebsite">Website</label><input id="companyWebsite" style="margin-left:8px;" type="text"></input>
+				<input id="startDate" class="datePick" onchange="validateDate(this)" placeholder="mm/dd/yyyy" type="text" value="10/14/2013" size="8"></input>
 				
-				<br/>
-				<!-- Retail Value Input -->
-				$<input id="retailValue" class="dollar" onchange="validateRetailValue();" type="text" size="5" name="retailValue"></input>
-				
-				<span id="retailValueError" class="errorMsg"></span>
-				
-				<br/>
-				<!-- Start Time/Date Input -->
-				
-				<input id="startDate" onchange="validateDate(this)" placeholder="mm/dd/yyyy" type="text" value="10/14/2013" size="8"></input>
-				
-				<input id="startTime" onchange="validateTime(this)" placeholder="hh:mm" type="text" value="12:00" size="3"></input>
-				
-				<select><option value="AM">AM</option><option value="PM">PM</option></select>
+				<input id="startTime" onchange="validateTime(this)" placeholder="00:00 AM" value="08:30 PM" size="7"></input>
 				
 				<!-- Start Time/Date Error -->
 			
@@ -341,16 +320,15 @@
 				<span id="startTimeError" class="errorMsg"></span>
 				
 				<br/>
-				
+				<label for="endDate">End Date</label><br/>
 				<!-- End Time/Date Input -->
 				
-				<input id="endDate" onchange="if(validateDate(this))validateEndTimeSlot();" placeholder="mm/dd/yyyy" type="text" value="11/01/2013" size="8" style=""></input>
+				<input id="endDate" class="datePick" onchange="if(validateDate(this))validateEndTimeSlot();" placeholder="mm/dd/yyyy" type="text" value="11/01/2013" size="8" style=""></input>
 				
-				<input id="endTime" onchange="if(validateTime(this))validateEndTimeSlot();" placeholder="hh:mm" type="text" value="12:00" size="3" style=""></input>
+				<input id="endTime" onchange="if(validateTime(this))validateEndTimeSlot();" type="text" placeholder="00:00 AM" value="08:30 PM" size="7"></input>
 				
-				<select><option value="AM">AM</option><option value="PM">PM</option></select>
 				
-				<!-- Generate End Time Button -->
+				<!-- Generate End Time Button 
 				
 				<span class="button blue small" onclick="generateEndTime();" title="Chooses an available time slot nearest the one currently in the 'End Time' text field.">Generate End Time</span>
 				
@@ -363,66 +341,30 @@
 				<span id="endTimeError" class="errorMsg"></span>
 				
 				<span id="endTimeWarning" class="warningMsg"></span>
-				
+			</div>
+			<!-- Input Fields -->
+			<div class="column">
+				<!-- Comapny Name Input and Comapny Website Input -->
+				<label for="companyWebsite">Website</label><br />
+                <input id="companyWebsite" style="margin-left:8px;" type="text"></input><br />
+                
+                <label for="retailValue">Retail Value</label>
+				<br/><!-- Retail Value Input -->
+				<input id="retailValue" class="dollar" onchange="validateRetailValue();" type="text" size="5" name="retailValue"></input>
+				<span id="retailValueError" class="errorMsg"></span><br />
+				<label for="itemID">Item ID #</label>
 				<br/>
-				
 				<!-- Item ID Input -->
 				
 				<input id="itemID" type="text" size="5"></input>
 				
 				<span class="button blue small" onclick="generateUniqueID();" title="Generates a unique ID number not currently in the database.">Generate Unique ID</span>
-				
-				<br/>
-				
+
 				<!-- Item ID Error -->
 				
 				<span id="idError" class="errorMsg"></span>
 			
 			</div>
-			
-			<br/>
-			<br/>
-			
-			<!-- Bid Increment Selector -->
-			<label for="bidInc">Bid Increments</label>
-			
-			<br/>
-			
-			<select id="bidInc" onchange="isCustomInc(this.value);" >
-				
-				<option value="0">$1, $3, $5, $10, $50</option>
-				
-				<option value="1">$5, $10, $20, $50, $100</option>
-				
-				<option value="2">$10, $25, $50, $100, $250</option>
-				
-				<option value="3">$50, $100, $250, $500, $1000</option>
-				
-				<option value="custom">Custom...</option>
-			
-			</select>
-			<!-- Custom Increment Text Fields -->
-			<br/>
-			
-			<span class="custInc" style="visibility:hidden;">
-				
-				$<input class="dollar incField" onchange="validateCustInc();" type="text" size="3"></input>
-				
-				$<input class="dollar incField" onchange="validateCustInc();" type="text" size="3"></input>
-				
-				$<input class="dollar incField" onchange="validateCustInc();" type="text" size="3"></input>
-				
-				$<input class="dollar incField" onchange="validateCustInc();" type="text" size="3"></input>
-				
-				$<input class="dollar incField" onchange="validateCustInc();" type="text" size="3"></input>
-				
-				<!-- Custom Increment Error -->
-				
-				<span id="custIncError" class="errorMsg" ></span>
-			
-			</span>
-			
-			<br/>
 			<br/>
 			
 			<!-- Misc -->
@@ -431,9 +373,9 @@
 			
 			<br/>
 			<span id="misc">
-			<input id="shippable" type="checkbox" /><span>Shippable</span>
+			<input id="shippable" type="checkbox" /><label for="shippable">Shippable</label>
 			
-			<input id="used" type="checkbox" /><span>Used</span>
+			<input id="used" type="checkbox" /><label for="used">Used</label>
             </span>
 			
 			<br/>
@@ -442,7 +384,7 @@
 			
 			<!-- Form Buttons -->
 			
-			<span class="button yellow medium">Save as Draft</span>
+			<span class="button button yellow medium">Save as Draft</span>
 			
 			<span class="button orange medium" onclick="validateCreateItem()">Submit</span>
 			

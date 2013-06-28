@@ -365,37 +365,18 @@ body  {
 }
 
 .button {
-	/* Image has maximum height of 27px */
-	background:url(tempButtonOverlay.png);
-	
-	background-repeat:repeat-x;
-	
-	font:14px sans-serif;
-	
-	color:white;
-	
-	margin:8px;
-	
-	padding:5px 8px;
-	
-	border-radius:3px;
-	
 	cursor:pointer;
 }
 .button.blue {
-
 	background-color:#00baff;
 }
 .button.green {
-
 	background-color:#0cff00;
 }
 .button.yellow {
-
 	background-color:#ffd400;
 }
 .button.orange {
-
 	background-color:#ffa100;
 }
 .button.small {
@@ -760,34 +741,10 @@ body  {
 	margin:-8px; /* Nullifies formPanel's padding. */
 	margin-bottom:8px;
 }
-input {
-	border:solid 1px #abadb3;
-	padding:4px;
-}
-label {
-	padding:4px;
-}
-input.dollar {
-	margin-left:0px; /* Allows the '$' symbol to precede the input box. */
-}
-input.invalid {
-	border-color:red;
-}
-input, select, textarea {
-	margin:4px;
-	margin-left:8px;
-}
+
 .column {
 	display:inline-block;
 	vertical-align:top;
-}
-span.errorMsg {
-	font:14px sans-serif;
-	color:red;
-}
-span.warningMsg {
-	font:14px sans-serif;
-	color:#ffa100;
 }
 #adminBannerLogo {
 	background:url(eaflogo_small.png);
@@ -800,11 +757,11 @@ span.warningMsg {
 	font:bold 24px sans-serif;
 	color:#e7f5ff;
 	height:80px;
-	
-	position:absolute;
+	position:absolute;	
 	left:84px;
 	top:24px;
 }
+
 #adminBanner {
 	background:url(horz.png) -0px -0px;
 	background-repeat:repeat-x;
@@ -821,3 +778,20 @@ span.warningMsg {
 	position:relative;
 }
 
+input, textarea {
+	padding: .4em;
+	margin: .4em;
+
+	border-radius:3px;
+	border:1px solid #aaa;
+	margin-bottom:1em;
+}
+label{
+	margin:.4em .3em;	
+	padding:.4em 0;
+	font-weight:bold;
+}
+
+div.ui-datepicker{
+ font-size:62.5%;
+}
