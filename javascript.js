@@ -67,6 +67,8 @@ function slideShowLoop(index, duration) {
 
 
 	slideShowIndex++;
+        $('<img/>')[0].src = $(".hotItemImage").eq(slideShowIndex).attr("id").substring(4,$(".hotItemImage").eq(slideShowIndex).attr("id").length-1);
+
 
 	
 
