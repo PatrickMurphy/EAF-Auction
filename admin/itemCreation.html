@@ -213,7 +213,7 @@
 			
 			<div id="searchButton">Search</div>
 			
-			<input id="searchBar" type="text"></input>
+			<input id="searchBar" type="text" />
 			
 		</div>
 		
@@ -285,7 +285,7 @@
 			<label for="title">Title</label>
 			<br/>
 			
-			<input id="title" type="text" style="width:480px;"></input> 
+			<input id="title" type="text" style="width:480px;" /> 
 			
 			<span id="titleError" class="errorMsg"></span>
 			
@@ -317,20 +317,20 @@
 			<!-- Input Fields -->
 			<div class="column" style="line-height:28px;">
 				<!-- Comapny Name Input and Comapny Website Input -->
-				<input id="company" type="text" style="margin-right:36px;"></input><label for="companyWebsite">Website</label><input id="companyWebsite" style="margin-left:8px;" type="text"></input>
+				<input id="company" type="text" style="margin-right:36px;" /><label for="companyWebsite">Website</label><input id="companyWebsite" style="margin-left:8px;" type="text" />
 				
 				<br/>
 				<!-- Retail Value Input -->
-				$<input id="retailValue" class="dollar" onchange="validateRetailValue();" type="text" size="5" name="retailValue"></input>
+				$<input id="retailValue" class="dollar" onchange="validateRetailValue();" type="text" size="5" name="retailValue" />
 				
 				<span id="retailValueError" class="errorMsg"></span>
 				
 				<br/>
 				<!-- Start Time/Date Input -->
 				
-				<input id="startDate" onchange="validateDate(this)" placeholder="mm/dd/yyyy" type="text" value="10/14/2013" size="8"></input>
+				<input id="startDate" onchange="validateDate(this)" placeholder="mm/dd/yyyy" type="text" value="10/14/2013" size="8" />
 				
-				<input id="startTime" onchange="validateTime(this)" placeholder="hh:mm" type="text" value="12:00" size="3"></input>
+				<input id="startTime" onchange="validateTime(this)" placeholder="hh:mm" type="text" value="12:00" size="3" />
 				
 				<select><option value="AM">AM</option><option value="PM">PM</option></select>
 				
@@ -344,9 +344,9 @@
 				
 				<!-- End Time/Date Input -->
 				
-				<input id="endDate" onchange="if(validateDate(this))validateEndTimeSlot();" placeholder="mm/dd/yyyy" type="text" value="11/01/2013" size="8" style=""></input>
+				<input id="endDate" onchange="if(validateDate(this))validateEndTimeSlot();" placeholder="mm/dd/yyyy" type="text" value="11/01/2013" size="8" style="" />
 				
-				<input id="endTime" onchange="if(validateTime(this))validateEndTimeSlot();" placeholder="hh:mm" type="text" value="12:00" size="3" style=""></input>
+				<input id="endTime" onchange="if(validateTime(this))validateEndTimeSlot();" placeholder="hh:mm" type="text" value="12:00" size="3" style="" />
 				
 				<select><option value="AM">AM</option><option value="PM">PM</option></select>
 				
@@ -368,7 +368,7 @@
 				
 				<!-- Item ID Input -->
 				
-				<input id="itemID" type="text" size="5"></input>
+				<input id="itemID" type="text" size="5" />
 				
 				<span class="button blue small" onclick="generateUniqueID();" title="Generates a unique ID number not currently in the database.">Generate Unique ID</span>
 				
@@ -406,15 +406,15 @@
 			
 			<span class="custInc" style="visibility:hidden;">
 				
-				$<input class="dollar incField" onchange="validateCustInc();" type="text" size="3"></input>
+				$<input class="dollar incField" onchange="validateCustInc();" type="text" size="3" />
 				
-				$<input class="dollar incField" onchange="validateCustInc();" type="text" size="3"></input>
+				$<input class="dollar incField" onchange="validateCustInc();" type="text" size="3" />
 				
-				$<input class="dollar incField" onchange="validateCustInc();" type="text" size="3"></input>
+				$<input class="dollar incField" onchange="validateCustInc();" type="text" size="3" />
 				
-				$<input class="dollar incField" onchange="validateCustInc();" type="text" size="3"></input>
+				$<input class="dollar incField" onchange="validateCustInc();" type="text" size="3" />
 				
-				$<input class="dollar incField" onchange="validateCustInc();" type="text" size="3"></input>
+				$<input class="dollar incField" onchange="validateCustInc();" type="text" size="3" />
 				
 				<!-- Custom Increment Error -->
 				

@@ -386,12 +386,13 @@ body  {
 	margin:8px;
 }
 .button.medium {
-
-	padding:4px 8px;
-	
-	margin:3px;
-	
+	padding:4px 0;
+	margin:3px 0;
 	font:bold 15px sans-serif;
+}
+.button-inline {
+    padding:.6em 0;
+	margin:3px 0;
 }
 .bidNow {
 
@@ -741,7 +742,12 @@ body  {
 	margin:-8px; /* Nullifies formPanel's padding. */
 	margin-bottom:8px;
 }
-
+#formButtonRow {
+    text-align:justify;
+    margin: 0 10px;
+}
+#formButtonRow > span {display:inline-block}
+#formButtonRow:after { content:' '; display:inline-block; width: 100%; height: 0 }
 .column {
 	display:inline-block;
 	vertical-align:top;
@@ -777,8 +783,15 @@ body  {
 	
 	position:relative;
 }
+.button,.ui-autocomplete {
+    font-size:62.5%;
+}
+.ui-autocomplete-category {
+    font-weight:bold;
+}
 
-input, textarea {
+
+input, textarea, select {
 	padding: .4em;
 	margin: .4em;
 
@@ -791,7 +804,73 @@ label{
 	padding:.4em 0;
 	font-weight:bold;
 }
+.formPanel .column input, .formPanel .column textarea {width:85%;}
+.formPanel .column select {width:90%;}
+.input-sideButton span{
+margin-left:-10px;
+border-top-left-radius:0px;
+border-bottom-left-radius:0px;
+}
+
+.input-sideButton input{
+    border-top-right-radius:0px;
+    border-bottom-right-radius:0px;
+}
+.formPanel .column .input-sideButton input{
+    width:76%;
+}
+.dollar {
+    padding-left:16px;
+    margin-right:-160px;
+    width:82% !important;
+    display:inline-block;
+}
+.ui-icon-dollar {
+    display:inline-block;
+    height:14px;
+    width:7px;
+    color:#777;
+}
+.upload-images {padding-left:6px;}
+#images-dialog ul {
+    padding:0;
+    margin:0
+}
+#images-dialog li {
+    list-style:none;
+    padding:.4em;
+    margin:.2em 0;
+    border:1px solid #777;
+    width:100%;
+    font-size:12px; height: 1.2em;
+    cursor:move;
+}
+#images-dialog-upload-button {
+    font-size:10px;
+    position:relative;
+    left:18px;
+}
+.ui-tooltip {
+    font-size:62.5%;
+}
+
+
+#shippableSet, #usedSet {margin-left:.4em;}
+#shippableSet label:first-child, #usedSet label:first-child {background-image: none !important; color: inherit !important;}
+#shippableSet label, #shippableSet input, #usedSet label, #usedSet input {margin-left:-1px;}
+
+
+.notSelected{
+    background-image:url("greyRadio_bg.png") !important;
+    color:#fff;
+}
+.notSelected:hover{
+    background-image:url(greyRadio_bg_hover.png) !important;
+}
 
 div.ui-datepicker{
  font-size:62.5%;
+}
+.ui-dialog {
+    background-color:#ebf7f8;
 }

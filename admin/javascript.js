@@ -307,9 +307,109 @@ function validateTime(index) {
 		timeObject.text(timeString);
 
 }
+//TODO: Fix auto complete, possibly use json cache
+$.widget( "custom.cattag", $.ui.autocomplete, {
+    _renderMenu: function( ul, items ) {
+      var that = this,
+        currentCategory = "";
+      $.each( items, function( index, item ) {
+        if ( item.category != currentCategory ) {
+          ul.append( "<li class='ui-autocomplete-category'>" + item.category + "</li>" );
+          currentCategory = item.category;
+        }
+        that._renderItemData( ul, item );
+      });
+    }
+  });
 	$(function() {
-   		$(".datePick").datepicker({ minDate: new Date(2013, 9, 24), maxDate: new Date(2013, 10, 7), numberOfMonths: 2,
-      showButtonPanel: true });
+   		$(".datePick").datepicker({ minDate: new Date(2013, 9, 24), maxDate: new Date(2013, 10, 7), numberOfMonths: 2, showButtonPanel: true });
+        $("[title]").tooltip({track:true, position:{my: "center bottom-15", at: "center top"}});
 		$(".button, #shippable, #used").button();
-		$( "#startTime, #endTime" ).spinner();
+        $("#images-dialog-upload-button").button({icons:{primary:"ui-icon-plusthick"}});
+        $(".shuffle-icon").button({icons:{primary:"ui-icon-shuffle"}, text: false});
+        $(".delete-icon").button({icons:{primary:"ui-icon-trash"}, text: false});
+        $(".dollar").each(function(index,element){
+            $('<span>').addClass('ui-icon-dollar').insertAfter(element).position({
+            of: element
+            ,my: 'left'
+            ,at: 'left+5.3 top+13'
+        }).text("$");
+    });
+    var data = [
+    { label: "Alaska", category: "" },
+    { label: "Art", category: "" },
+    { label: "Eastern Washington", category: "Washington" },
+    { label: "Seattle Area", category: "Washington" },
+    { label: "Software & Games", category: "" },
+    { label: "Sports Equipment & Events", category: "" },
+    { label: "Vacations", category: "" }
+    ];
+    function split( val ) {
+      return val.split( /,\s*/ );
+    }
+    function extractLast( term ) {
+      return split( term ).pop();
+    }
+    $("#categories").bind("keydown", function(event){
+        if ( event.keyCode === $.ui.keyCode.TAB &&
+            $( this ).data( "ui-autocomplete" ).menu.active ) {
+          event.preventDefault();
+        }
+    })
+    .cattag({
+        minLength: 0,
+        source: function( request, response ) {
+          // delegate back to autocomplete, but extract the last term
+          response( $.ui.autocomplete.filter(
+            data, extractLast( request.term ) ) );
+        },
+        focus: function() {
+          // prevent value inserted on focus
+          return false;
+        },
+        select: function( event, ui ) {
+          var terms = split( this.value );
+          // remove the current input
+          terms.pop();
+          // add the selected item
+          terms.push( ui.item.value );
+          // add placeholder to get the comma-and-space at the end
+          terms.push( "" );
+          this.value = terms.join( ", " );
+          return false;
+        }
+      });
+      $(".upload-images").button({icons:{primary:"ui-icon-image"}}).click(function(){
+        $("#images-dialog").dialog("open");
+      });
+      $("#images-dialog").dialog({
+        autoOpen:false,
+        height:325,
+        width:600,
+        modal: true
+      });
+      $( "#images-dialog ul" ).sortable({placeholder: "ui-state-highlight"});
+      $( "#images-dialog ul" ).disableSelection();
+        $("#formButtonRow span:first").button({
+            icons: {
+                primary: "ui-icon-note"
+            }
+            }).next().button({
+                icons: {
+                    primary: "ui-icon-disk"
+                }   
+            }).next().button({
+                icons: {
+                    primary: "ui-icon-plusthick"
+                }   
+            }).next().button({
+                icons: {
+                    primary: "ui-icon-image"
+                }   
+            });
+		$("#startTime, #endTime" ).spinner();
+        $("#shippableSet, #usedSet").buttonset();
+        $("#shippableSet, #usedSet").change(function(e) {
+           $(e.target).siblings("label").toggleClass("notSelected", 100);
+        });
  	});
