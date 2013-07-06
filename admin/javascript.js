@@ -328,13 +328,7 @@ $.widget( "custom.cattag", $.ui.autocomplete, {
         $("#images-dialog-upload-button").button({icons:{primary:"ui-icon-plusthick"}});
         $(".shuffle-icon").button({icons:{primary:"ui-icon-shuffle"}, text: false});
         $(".delete-icon").button({icons:{primary:"ui-icon-trash"}, text: false});
-        $(".dollar").each(function(index,element){
-            $('<span>').addClass('ui-icon-dollar').insertAfter(element).position({
-            of: element
-            ,my: 'left'
-            ,at: 'left+5.3 top+13'
-        }).text("$");
-    });
+        $(".close-circle-icon").button({icons:{primary:"ui-icon-circle-close"}, text: false});
     var data = [
     { label: "Alaska", category: "" },
     { label: "Art", category: "" },
@@ -379,17 +373,18 @@ $.widget( "custom.cattag", $.ui.autocomplete, {
           return false;
         }
       });
-      $(".upload-images").button({icons:{primary:"ui-icon-image"}}).click(function(){
-        $("#images-dialog").dialog("open");
-      });
-      $("#images-dialog").dialog({
-        autoOpen:false,
-        height:325,
-        width:600,
-        modal: true
-      });
-      $( "#images-dialog ul" ).sortable({placeholder: "ui-state-highlight"});
-      $( "#images-dialog ul" ).disableSelection();
+      
+	   $( "#error-message" ).dialog({
+      modal: true,
+      autoOpen:false,
+      draggable:false,
+      resizable:false,
+      buttons: {
+        Ok: function() {
+          $( this ).dialog( "close" );
+        }
+      }
+    });
         $("#formButtonRow span:first").button({
             icons: {
                 primary: "ui-icon-note"
@@ -407,7 +402,30 @@ $.widget( "custom.cattag", $.ui.autocomplete, {
                     primary: "ui-icon-image"
                 }   
             });
-		$("#startTime, #endTime" ).spinner();
+        $.widget( "ui.timeSpinner", $.ui.spinner, {
+    options: {
+      // seconds
+      step: 60 * 10000,
+      // hours
+      page: 60
+    },
+ 
+    _parse: function( value ) {
+      if ( typeof value === "string" ) {
+        // already a timestamp
+        if ( Number( value ) == value ) {
+          return Number( value );
+        }
+        return +Globalize.parseDate( value );
+      }
+      return value;
+    },
+ 
+    _format: function( value ) {
+      return Globalize.format( new Date(value), "t" );
+    }
+  });
+		$(".timeSpinner" ).timeSpinner();
         $("#shippableSet, #usedSet").buttonset();
         $("#shippableSet, #usedSet").change(function(e) {
            $(e.target).siblings("label").toggleClass("notSelected", 100);

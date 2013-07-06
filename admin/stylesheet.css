@@ -9,7 +9,7 @@ body  {
 	background-color:#d0e0eb;
 
 	margin-top:0px;
-
+    overflow-x:hidden;
 }
 
 #main {
@@ -789,8 +789,8 @@ body  {
 .ui-autocomplete-category {
     font-weight:bold;
 }
-
-
+.ui-state-default {border-color:#aaa;}
+.ui-state-hover {border-color:#777;}
 input, textarea, select {
 	padding: .4em;
 	margin: .4em;
@@ -798,11 +798,18 @@ input, textarea, select {
 	border-radius:3px;
 	border:1px solid #aaa;
 	margin-bottom:1em;
+    background:#fff;
 }
 label{
 	margin:.4em .3em;	
 	padding:.4em 0;
 	font-weight:bold;
+}
+.inputError {
+    border-color:red !important;
+}
+.inputWarning {
+    border-color:darkblue !important;
 }
 .formPanel .column input, .formPanel .column textarea {width:85%;}
 .formPanel .column select {width:90%;}
@@ -824,12 +831,19 @@ border-bottom-left-radius:0px;
     margin-right:-160px;
     width:82% !important;
     display:inline-block;
+    background:#fff url("dollar.gif") no-repeat 5px center;
 }
 .ui-icon-dollar {
     display:inline-block;
     height:14px;
     width:7px;
     color:#777;
+    position:absolute;
+}
+.customBidInc > .dollar {
+    display:inline-block;
+    width:20px !important;
+    margin:0 1px;
 }
 .upload-images {padding-left:6px;}
 #images-dialog ul {
@@ -873,4 +887,7 @@ div.ui-datepicker{
 }
 .ui-dialog {
     background-color:#ebf7f8;
+}
+.ui-dialog p {
+    font-size:80%;
 }
