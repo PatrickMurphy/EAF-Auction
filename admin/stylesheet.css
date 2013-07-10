@@ -850,7 +850,7 @@ border-bottom-left-radius:0px;
     padding:0;
     margin:0
 }
-#images-dialog li {
+#images-dialog div ul li {
     list-style:none;
     padding:.4em;
     margin:.2em 0;
@@ -858,9 +858,10 @@ border-bottom-left-radius:0px;
     width:100%;
     font-size:12px; height: 1.2em;
     cursor:move;
+	background-color:#fefefe;
 }
 #images-dialog-upload-button {
-    font-size:10px;
+    font-size:10pt;
     position:relative;
     left:18px;
 }

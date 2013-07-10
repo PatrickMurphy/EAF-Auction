@@ -241,7 +241,7 @@
                 $("#error-message").dialog("open");
             }
             $(function(){
-            var imageUploader1 = new imageUploader("#images-dialog", ".upload-images");
+            var imageUploader1 = new imageUploader("#images-dialog", ".upload-images",675);
             });
 		</script>
 	</head>
@@ -414,8 +414,7 @@
 						</label>
 						<br/>
 						<!-- End Time/Date Input -->
-						<input style="width: 56.5%; margin-right:0px;" id="endDate" class="datePick" onchange="if(validateDate(this))validateEndTimeSlot();" placeholder="mm/dd/yyyy" type="text" value="11/01/2013" size="8" style=""
-						/>
+						<input style="width: 56.5%; margin-right:0px;" id="endDate" class="datePick" onchange="if(validateDate(this))validateEndTimeSlot();" placeholder="mm/dd/yyyy" type="text" value="11/01/2013" size="8" />
 						<input id="endTime" class="timeSpinner" onchange="if(validateTime(this))validateEndTimeSlot();" type="text" placeholder="00:00 AM" value="08:30 PM" size="7" />
 						<br/>
 						<span id="endDateError" class="errorMsg">
@@ -533,19 +532,20 @@
 					<br/>
 					<br />
                     <div id="images-dialog" title="Manage Images"> 
-                        <div class="column"><img src="../item_1.jpg" /></div>
-                        <div class="column" style="width:300px;">
-                            <div style="width: 100%;">Files: <span class="right button" id="images-dialog-upload-button" style="text-size:62.5%;">Upload</span></div>
+                        <div class="column"><img id="imgUploadPreview" src="../item_1.jpg" /></div>
+                        <div class="column" style="width:375px;">
+                            <div style="width: 100%;">Files:</div>
+                            <div style="margin-bottom:10px;"><form id="imgUploadForm" method="post" enctype="multipart/form-data" action="imageUploader.php" ><input name="photoimg" type="file" style="margin:0; font-size:75%;" /><span id="images-dialog-upload-button" class="right">Upload</span></form></div>
                             <ul>
                                 <li>image1.jpg<span class="right delete-icon" style="height: 16px; width:16px;" title="Are you sure you want to delete this image?">
 								Delete
-							</span></li>
+								</span></li>
                                 <li>image2.jpg<span class="right delete-icon" style="height: 16px; width:16px;" title="Are you sure you want to delete this image?">
 								Delete
-							</span></li>
+								</span></li>
                                 <li>image3.jpg<span class="right delete-icon" style="height: 16px; width:16px;" title="Are you sure you want to delete this image?">
 								Delete
-							</span></li>
+								</span></li>
                                 <li>image4.jpg<span class="right delete-icon" style="height: 16px; width:16px;" title="Are you sure you want to delete this image?">
 								Delete
 							</span></li>

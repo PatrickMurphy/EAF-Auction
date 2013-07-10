@@ -1,13 +1,14 @@
-function imageUploader(dialogSelector,openButtonSelector){
+function imageUploader(dialogSelector,openButtonSelector, widthValue){
     this.dialogId = dialogSelector; 
     this.buttonId = openButtonSelector;   
-    this.images = [new imageFile("","","")]; //
+    this.images = [new imageFile("","","")];
+	this.width = widthValue; 
     var imgUploader = this;
     
     // Create dialog box
     $(this.dialogId).dialog({
         autoOpen:false,
-        width:625,
+        width:imgUploader.width,
         draggable:false,
         resizable:false,
         modal: true,
@@ -22,14 +23,33 @@ function imageUploader(dialogSelector,openButtonSelector){
     $(this.buttonId).button({icons:{primary:"ui-icon-image"}}).click(function(){
         $(imgUploader.dialogId).dialog("open");
     });
-    $( this.dialogId + " ul" ).sortable({placeholder: "ui-state-highlight"});
-    $( this.dialogId + " ul" ).disableSelection();
-    $("#images-dialog-upload-button").click();
+    $( this.dialogId + " ul" ).sortable({placeholder: "ui-state-active"});
+	$( this.dialogId + " ul" ).disableSelection();
+    $("#images-dialog-upload-button").click(function(){
+		imgUploader.uploadImage();	
+	});
 }
 
 // Upload Method
 imageUploader.prototype.uploadImage = function(){
     //TODO: upload
+console.log("upload");
+	$.ajax({  
+        url: $('form#imgUploadForm').attr('action'),  
+        type: "POST",
+		data:  new FormData($('#imgUploadForm')),  
+        processData:false,  
+		dataType: 'json',
+        contentType: false,  
+		cache:false,
+        success: function (obj) {  
+            if(json.error)
+				var newError = json.msg;
+			else
+				this.images.push(new imageFile(json.filename,json.size,json.path,this.images.length));
+			console.log("Callback");
+        }  
+    }); 
 };
 
 // Delete Image Method
@@ -51,8 +71,9 @@ imageUploader.prototype.updateButton = function() {
     $(this.buttonId + " > .ui-button-text").html(newText);
 };
 
-function imageFile(file_name,file_path,list_position){
+function imageFile(file_name,file_size,file_path,list_position){
     this.filename=file_name;
     this.filepath=file_path;
     this.order=list_position;
+	this.size = file_size;
 }
