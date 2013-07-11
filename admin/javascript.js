@@ -307,6 +307,14 @@ function validateTime(index) {
 		timeObject.text(timeString);
 
 }
+
+			function navPanel(object) {
+				$(object).next().slideToggle();
+			}
+
+			function hideMenus() {
+				$(".menu").hide(0);
+			}
 //TODO: Fix auto complete, possibly use json cache
 $.widget( "custom.cattag", $.ui.autocomplete, {
     _renderMenu: function( ul, items ) {
