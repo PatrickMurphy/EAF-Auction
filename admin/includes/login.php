@@ -5,11 +5,11 @@
 					<div class="formPanelHeader">
 						Login
 					</div>
-<form action="index.php?page=login" method="post">
-    <label for="username">Username:</label>
+<form action="index.php?page=login" method="post" style="width: 250px;">
+    <label for="username">Username:</label><br />
     <input name="username" id="username" type="text" placeholder="Username" /><br />
-    <label for="password">Password:</label>
-    <input name="username" id="password" type="text" placeholder="Password" /><br />
+    <label for="password">Password:</label><br />
+    <input name="username" id="password" type="password" placeholder="Password" /><br />
     <input type="submit" name="submit" class="button right" />
 </form>
 </div>
