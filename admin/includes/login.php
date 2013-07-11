@@ -2,14 +2,12 @@
 //$this->users->login('');
 ?>
 <div class="formPanel column">
-					<div class="formPanelHeader">
-						Login
-					</div>
-<form action="index.php?page=login" method="post" style="width: 250px;">
-    <label for="username">Username:</label><br />
-    <input name="username" id="username" type="text" placeholder="Username" /><br />
-    <label for="password">Password:</label><br />
-    <input name="username" id="password" type="password" placeholder="Password" /><br />
-    <input type="submit" name="submit" class="button right" />
-</form>
+    <div class="formPanelHeader">Login</div>
+    <form action="index.php?page=login" method="post" style="width: 400px; margin:auto;">
+        <label for="username">Username:</label><br />
+        <input width="100%" name="username" id="username" type="text" placeholder="Username" /><br />
+        <label for="password">Password:</label><br />
+        <input width="100%" name="username" id="password" type="password" placeholder="Password" /><br />
+        <input type="submit" value="Login" name="submit" class="button right" style="text-size:12pt;" />
+    </form>
 </div>
