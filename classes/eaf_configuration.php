@@ -17,7 +17,7 @@
         }
         
         public function getValue($param_name){
-            return $this->database->executeSQL('Select value FROM eaf_configuration where parameter=`'.$param_name.'`')[0];
+            return array_shift(array_values($this->database->executeSQL('Select value FROM eaf_configuration where parameter=`'.$param_name.'`')));
         }
         
         public function setValue($params_array){
