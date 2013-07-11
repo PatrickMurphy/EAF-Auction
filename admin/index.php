@@ -1,5 +1,5 @@
 <?php
-     start_session();
+     session_start();
     //output buffering
 
     require_once('../classes/eaf_database.php');
