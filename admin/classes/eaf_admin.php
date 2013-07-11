@@ -8,11 +8,14 @@ class eaf_admin {
         function __construct() {
             $this->database = new eaf_database('eaf_auction', 'pmphotog_eaf', 'almostover13');
             $this->config = new eaf_configuration($this->database);
+            $this->user = new eaf_user($this->database,$this->config);
             
             if($this->authenticate())
                 $this->pageSwitch();
             
             $this->createPage();
+            
+            $this->database->CloseConnection();
         }
         
         private function authenticate(){

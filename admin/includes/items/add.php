@@ -73,8 +73,8 @@ function bidInc(){
     }
 }
 
-//if(checkForm())
-    //mysql_query();
+if(checkForm())
+    $this->database->Insert("","eaf_items");
 if(!isset($_POST)){
 ?>
 <div class="formPanel column">

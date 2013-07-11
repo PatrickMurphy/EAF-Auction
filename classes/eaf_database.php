@@ -191,7 +191,7 @@ class eaf_database {
 	
 	
 	// Gets a single row from $from where $where is true
-	function Select($from, $where='', $orderBy='', $limit='', $like=false, $operand='AND',$cols='*'){
+	function Select($cols, $from, $where='', $orderBy='', $limit='', $like=false, $operand='AND'){
 		// Catch Exceptions
 		if(trim($from) == ''){
 			return false;
@@ -310,6 +310,10 @@ class eaf_database {
 	function LastInsertID(){
 		return mysql_insert_id();
 	}
+    
+    function NumRows(){
+        return mysql_num_rows($this->result);
+    }
 
 	// Closes the connections
 	function CloseConnection(){
