@@ -6,7 +6,7 @@ class eaf_admin {
         private $config;
         
         function __construct() {
-            $this->database = new eaf_database('eaf_auction', 'eaf_mysql', 'almostover13');
+            $this->database = new eaf_database('eaf_auction', 'pmphotog_eaf', 'almostover13');
             $this->config = new eaf_configuration($this->database);
             
             if($this->authenticate())
