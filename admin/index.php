@@ -4,6 +4,7 @@
 
     require_once('../classes/eaf_database.php');
     require_once('../classes/eaf_configuration.php');
+    require_once('../classes/eaf_user.php');
     require_once('classes/eaf_admin.php');
     
     try{

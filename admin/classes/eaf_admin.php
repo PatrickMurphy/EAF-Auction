@@ -4,35 +4,40 @@ class eaf_admin {
         private $database;
         private $currentPage;
         private $config;
+        private $user;
         
-        function __construct() {
+        function eaf_admin() {
             $this->database = new eaf_database('eaf_auction', 'pmphotog_eaf', 'almostover13');
             $this->config = new eaf_configuration($this->database);
             $this->user = new eaf_user($this->database,$this->config);
             
             if($this->authenticate())
                 $this->pageSwitch();
-            
+                
             $this->createPage();
-            
+
             $this->database->CloseConnection();
         }
         
         private function authenticate(){
-            if($_SESSION['auth'] && $_SESSION['admin']){
+            if($this->user->getPrivilege() > 1)
                 return true;
-            }else{
-                $this->currentPage = 'includes/login.php';
-                return false;
-            }
+            else
+                if(!headers_sent()){
+    	           header('Location: ../login.php&redirect='.urlencode('admin/index.php?page='.$_GET['page']));
+    	           exit;//To ensure security
+                } 
+            return false;
         }
         
         public function createPage(){
+            ob_start();
             //include($this->config->getValue('admin_template_top'));
             include("includes/template.top.php");
             include($this->currentPage);
             include("includes/template.bottom.php");
             //include($this->config->getValue('admin_template_bottom'));
+            ob_end_flush();
         }
         
         public function pageSwitch(){
@@ -49,6 +54,8 @@ class eaf_admin {
                 case 'items':
                     switch($_GET['subpage']){
                         case 'view':
+                            $this->currentPage = 'includes/items/view.php';
+                            break;
                         case 'add':
                             $this->currentPage = 'includes/items/add.php';
                             break;
@@ -74,9 +81,6 @@ class eaf_admin {
                 break;
                 case 'config':
                     $this->currentPage = 'includes/home.php';
-                break;
-                case 'login':
-                    $this->currentPage = 'includes/login.php';
                 break;
             }
         }        

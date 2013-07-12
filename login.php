@@ -1,3 +1,18 @@
+<?php
+require_once('classes/eaf_database.php');
+require_once('classes/eaf_configuration.php');
+require_once('classes/eaf_user.php');
+$database = new eaf_database('eaf_auction', 'pmphotog_eaf', 'almostover13');
+$config = new eaf_configuration($database);
+$user = new eaf_user($database,$config);
+
+if(isset($_POST['rememberMe']))
+    $remember = true;
+else
+    $remember = false;
+
+$user->login($_POST['username'], $_POST['password'], $remember, urldecode($_GET['redirect']));
+?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
 
 <html>	
@@ -63,11 +78,11 @@
                 <div><span>Password:</span> <input type="password" name="password" /></div>
                 <br style="clear:both;" />
                 <div style="margin-left:131px;">
-                <input type="checkbox" name="keepMeLoggedIn" /> Keep me logged in
+                <input type="checkbox" name="rememberMe" /> Keep me logged in
                 </div>
                 <br style="clear:both;" />
                 <div><input class="bidNow" type="submit" style="border:0px;" value="Login" /></div></form>
-
+                <input type="hidden" name="redirect" value="<?php if(isset($_GET['redirect'])) echo $_GET['redirect']; else echo ''; ?>" />
                 </form>
             </div>
         </div>

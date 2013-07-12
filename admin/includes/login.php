@@ -1,5 +1,5 @@
 <?php
-//$this->users->login('');
+$this->user->login('');
 ?>
 <div class="formPanel column">
     <div class="formPanelHeader">Login</div>
