@@ -50,7 +50,7 @@ class eaf_user {
     public function logout($redirectTo=''){
         if(isset($_COOKIE['userstate']))
             setcookie('userstate','',time()-3600);
-        $_SESSION['priviledge'] = '';
+        $_SESSION['privilege'] = '';
         $_SESSION['user_id'] = '';
         $_SESSION['user_name'] = '';
         $this->userdata = '';
@@ -80,10 +80,6 @@ class eaf_user {
     public function createUser($formdata){
         $formdata['password'] = md5(strtolower($formdata['password']));
         return $this->database->Insert($formdata, 'eaf_users');
-    }
-    
-    public function activateUser($id){
-        return $this->database->Update('eaf_users', array('active' => 1), array('id' => $id));
     }
 }
 ?>

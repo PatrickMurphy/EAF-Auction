@@ -20,11 +20,11 @@ class eaf_admin {
         }
         
         private function authenticate(){
-            if($this->user->getPrivilege() > 1)
+            if($this->user->getPrivilege() >= 1)
                 return true;
             else
                 if(!headers_sent()){
-    	           header('Location: ../login.php&redirect='.urlencode('admin/index.php?page='.$_GET['page']));
+    	           header('Location: ../login.php?redirect='.urlencode('admin/index.php?page='.$_GET['page']));
     	           exit;//To ensure security
                 } 
             return false;
