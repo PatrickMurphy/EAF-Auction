@@ -4,6 +4,8 @@ $sql = mysql_connect("localhost","pmphotog_eaf","almostover13");
 if(!$sql)
     die('Could not connect: ' . mysql_error());
     
+mysql_select_db('pmphotog_eaf');
+
 $query = 'CREATE TABLE eaf_users (
 id int NOT NULL AUTO_INCREMENT,
 username varchar(25) NOT NULL,
