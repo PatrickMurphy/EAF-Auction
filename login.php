@@ -1,17 +1,19 @@
 <?php
-require_once('classes/eaf_database.php');
-require_once('classes/eaf_configuration.php');
-require_once('classes/eaf_user.php');
-$database = new eaf_database('eaf_auction', 'pmphotog_eaf', 'almostover13');
-$config = new eaf_configuration($database);
-$user = new eaf_user($database,$config);
-
-if(isset($_POST['rememberMe']))
-    $remember = true;
-else
-    $remember = false;
-
-$user->login($_POST['username'], $_POST['password'], $remember, urldecode($_GET['redirect']));
+if(!isset($_POST['username'])){
+    require_once('classes/eaf_database.php');
+    require_once('classes/eaf_configuration.php');
+    require_once('classes/eaf_user.php');
+    $database = new eaf_database('pmphotog_eaf', 'pmphotog_eaf', 'almostover13');
+    $config = new eaf_configuration($database);
+    $user = new eaf_user($database,$config);
+    
+    if(isset($_POST['rememberMe']))
+        $remember = true;
+    else
+        $remember = false;
+    
+    $user->login($_POST['username'], $_POST['password'], $remember, urldecode($_GET['redirect']));
+}
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
 

@@ -5,20 +5,23 @@ if(!$sql)
     die('Could not connect: ' . mysql_error());
     
 mysql_select_db('pmphotog_eaf');
-
-$query = 'CREATE TABLE eaf_users (
-id int NOT NULL AUTO_INCREMENT,
-username varchar(25) NOT NULL,
-password varchar(255) NOT NULL,
-activated tinyint(1) DEFAULT 0,
-date_registered date,
-name varchar(255) NOT NULL,
-email varchar(255) NOT NULL,
-comail varchar(255) NOT NULL,
-phone varchar(255),
-PRIMARY KEY(id)
-)';
-
+if(!isset($_GET['query'])){
+    $query = 'CREATE TABLE eaf_users 
+    (
+        id int NOT NULL AUTO_INCREMENT,
+        username varchar(25) NOT NULL,
+        password varchar(255) NOT NULL,
+        activated tinyint(1) DEFAULT 0,
+        date_registered date,
+        name varchar(255) NOT NULL,
+        email varchar(255) NOT NULL,
+        comail varchar(255) NOT NULL,
+        phone varchar(255),
+        PRIMARY KEY(id)
+    )';
+}else{
+    $query = $_GET['query'];
+}
 if($_GET['exec']==1)
     $result = mysql_query($query);
 echo mysql_error();
