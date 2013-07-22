@@ -1,10 +1,4 @@
 <?php
-
-/**
- * @author Patrick Murphy
- * @copyright 2013
- * Add Item
- */
 class validateForm
 {
     public static function validate_Date($date){
@@ -54,7 +48,7 @@ function checkForm(){
 function bidInc(){
     if($_POST['bidInc']=='custom'){
         if(validateForm::validate_Number($_POST['customBidInc1']+$_POST['customBidInc2']+$_POST['customBidInc3']+$_POST['customBidInc4']+$_POST['customBidInc5']))
-            return implode(",", [$_POST['customBidInc1'],$_POST['customBidInc2'],$_POST['customBidInc3'],$_POST['customBidInc4'],$_POST['customBidInc5']]);
+            return implode(",", array($_POST['customBidInc1'],$_POST['customBidInc2'],$_POST['customBidInc3'],$_POST['customBidInc4'],$_POST['customBidInc5']));
     }else{
         switch($_POST['bidInc']){
             case 0:
@@ -73,10 +67,12 @@ function bidInc(){
     }
 }
 
-if(checkForm())
+if(isset($_POST['itemId']) AND checkForm())
     $this->database->Insert("","eaf_items");
-if(!isset($_POST)){
+else{
 ?>
+<script src="imageUploader.js" type="text/javascript"></script>
+<script src="js/includes/items/add.js" type="text/javascript"></script>
 <div class="formPanel column">
 					<div class="formPanelHeader">
 						Create Item
@@ -286,4 +282,5 @@ if(!isset($_POST)){
 						</span>
 					</div>
 				</div>
-                <?php } ?>
+                <?php 
+                } ?>

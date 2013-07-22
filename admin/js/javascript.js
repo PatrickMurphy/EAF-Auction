@@ -438,4 +438,15 @@ $.widget( "custom.cattag", $.ui.autocomplete, {
         $("#shippableSet, #usedSet").change(function(e) {
            $(e.target).siblings("label").toggleClass("notSelected", 100);
         });
+        
+        // admin
+        $('body').click(function (e){
+            $("#accountMenu").hide();
+        });
+        $("#accountMenu").menu().hide();
+        $("#accountMenuButton").click(function (e){
+           $("#accountMenu").toggle();
+           e.stopPropagation();
+        });
  	});
+    

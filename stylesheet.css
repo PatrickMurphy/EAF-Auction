@@ -30,7 +30,7 @@ body  {
 
 #banner {
 
-	background:url(horz.png) -0px -0px;
+	background:url(images/horz.png) -0px -0px;
 
 	background-repeat:repeat-x;
 
@@ -56,7 +56,7 @@ body  {
 
 #bannerLogo {
 
-	background:url(eaflogo.png);
+	background:url(images/eaflogo.png);
 
 	height:154px;
 
@@ -86,7 +86,7 @@ body  {
 
 #navigation {
 
-	background:url(horz.png) -0px -174px;
+	background:url(images/horz.png) -0px -174px;
 
 	background-repeat:repeat-x;
 
@@ -137,7 +137,7 @@ body  {
 }
 
 .navItem:hover {
-	background:url(horz.png) -0px -209px;
+	background:url(images/horz.png) -0px -209px;
 }
 .navLeftCap:hover, .navRightCap:hover {
 	background-position: -0px -174px;
@@ -379,7 +379,7 @@ li{
 
 	
 
-	background:url(horz.png) -0px -335px;
+	background:url(images/horz.png) -0px -335px;
 
 	background-repeat:repeat-x;
 
@@ -397,7 +397,7 @@ li{
 
 .hotItemBlipSelected {
 
-	background:url(horz.png) -0px -346px;
+	background:url(images/horz.png) -0px -346px;
 
 }
 
@@ -417,7 +417,7 @@ li{
 
 	
 
-	background:url(horz.png) -0px -281px;
+	background:url(images/horz.png) -0px -281px;
 
 	background-repeat:repeat-x;
 
@@ -448,7 +448,7 @@ li{
 }
 
 .bidNow:hover {
-	background:url(horz.png) -0px -308px;
+	background:url(images/horz.png) -0px -308px;
 }
 
 .itemPrev {
@@ -534,7 +534,7 @@ li{
 
 #bottomBar {
 
-	background:url(horz.png) -0px -244px;
+	background:url(images/horz.png) -0px -244px;
 
 	background-repeat:repeat-x;
 
@@ -578,7 +578,7 @@ li{
 .header  {
 	height:32px;
 
-	background:url(horz.png) -0px -174px;
+	background:url(images/horz.png) -0px -174px;
 
 	background-repeat:repeat-x;
 
@@ -666,7 +666,7 @@ div.closedBox .header {
 }
 
 .news div p a:last-child {
-	background:url(horz.png) -0px -174px;	
+	background:url(images/horz.png) -0px -174px;	
 	color:#ededef !important;
 	line-height:32px;
 	padding: 0 6px;
@@ -714,7 +714,7 @@ div.closedBox .header {
 
 .registrationForm input[type="submit"] {
 	background-color:#5d859f;
-	background:url(horz.png) 0px -174px;
+	background:url(images/horz.png) 0px -174px;
 	height:32px !important;
 	line-height:20px;
 	width:277px;
@@ -726,7 +726,7 @@ div.closedBox .header {
 }
 
 .registrationForm input[type="submit"]:hover {
-	background:url(horz.png) 0px -210px;	
+	background:url(images/horz.png) 0px -210px;	
 }
 
 #page a {

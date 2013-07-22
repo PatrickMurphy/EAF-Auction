@@ -6,9 +6,9 @@
 
 	<title>News | EAF Auction | Alaska Airlines Employee Assistance Fund Annual Auction</title>
 
-	<script src="jquery-1.10.0.min.js"></script>
+	<script src="js/jquery-1.10.0.min.js"></script>
 
-	<script src="javascript.js" type="text/javascript" ></script>
+	<script src="js/javascript.js" type="text/javascript" ></script>
 
 	<link href="stylesheet.css" rel="stylesheet" type="text/css" />
 

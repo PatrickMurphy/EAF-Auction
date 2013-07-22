@@ -21,12 +21,14 @@ body  {
 	margin-left:auto;
 
 	margin-right:auto;
+    
+    position:relative;
 
 }
 
 #banner {
 
-	background:url(horz.png) -0px -0px;
+	background:url(images/horz.png) -0px -0px;
 
 	background-repeat:repeat-x;
 
@@ -52,7 +54,7 @@ body  {
 
 #bannerLogo {
 
-	background:url(eaflogo.png);
+	background:url(images/eaflogo.png);
 
 	height:154px;
 
@@ -79,7 +81,7 @@ body  {
 
 #navigation {
 
-	background:url(horz.png) -0px -174px;
+	background:url(images/horz.png) -0px -174px;
 
 	background-repeat:repeat-x;
 
@@ -115,7 +117,7 @@ body  {
 }
 
 #navigation a:hover {
-	background:url(horz.png) -0px -295px;
+	background:url(images/horz.png) -0px -295px;
 }
 
 #navigation .navCapLeft {
@@ -342,7 +344,7 @@ body  {
 
 
 
-	background:url(horz.png) -0px -273px;
+	background:url(images/horz.png) -0px -273px;
 
 	background-repeat:repeat-x;
 
@@ -360,7 +362,7 @@ body  {
 
 .hotItemBlipSelected {
 
-	background:url(horz.png) -0px -284px;
+	background:url(images/horz.png) -0px -284px;
 
 }
 
@@ -410,7 +412,7 @@ body  {
 
 
 
-	background:url(horz.png) -0px -246px;
+	background:url(images/horz.png) -0px -246px;
 
 	background-repeat:repeat-x;
 
@@ -512,7 +514,7 @@ body  {
 
 #bottomBar {
 
-	background:url(horz.png) -0px -209px;
+	background:url(images/horz.png) -0px -209px;
 
 	background-repeat:repeat-x;
 
@@ -563,7 +565,7 @@ body  {
 	height:32px;
 
 
-	background:url(horz.png) -0px -174px;
+	background:url(images/horz.png) -0px -174px;
 
 	background-repeat:repeat-x;
 
@@ -617,6 +619,7 @@ body  {
 	color:black;
 	
 	margin:0px;
+    padding:2px !important;
 }
 
 #searchBar:focus {
@@ -655,7 +658,7 @@ body  {
 }
 .navPanel {
 	height:auto;
-	font:bold 14px sans-serif;
+	font:bold 11pt sans-serif;
 	color:#545454;
 	
 	background-color:#aab0b1;
@@ -679,32 +682,37 @@ body  {
 	padding-left:24px;
 	width:auto;
 	height:auto;
-	background-color:#787d7d;
+	background-color:#999;
 	cursor:auto;
 }
 .navPanel .menu a {
-	color:#3b3b3b;
+	color:#222;
 	text-decoration:none;
+    line-height:16px;
 }
-.navPanel .menu a:hover {
-	color:#bbc0c1;
-}
+
 .navPanel div:nth-of-type(4n){
 	background-color:#bbc0c1;
 }
 .navPanel div:hover {
 	background-color:#d2d8d9;
 }
+.navPanel div .menu a:nth-of-type(4n){
+	background-color:red;
+}
 .navPanel .menu:hover {
-	background-color:#787d7d;
+    background: #999;
+}
+.navPanel .ui-icon {
+    margin-right:5px;
 }
 .navPanelHeader {
 	height:32px;
-	background:url(horz.png) -0px -174px;
+	background:url(images/horz.png) -0px -174px;
 	background-repeat:repeat-x;
 	border-radius:4px;
 	padding-left:12px;
-	color:white;
+	color:#fff;
 	
 	width:auto;
 	float:none;
@@ -730,7 +738,7 @@ body  {
 }
 .formPanelHeader {
 	height:32px;
-	background:url(horz.png) -0px -174px;
+	background:url(images/horz.png) -0px -174px;
 	background-repeat:repeat-x;
 	border-radius:4px;
 	padding-left:12px;
@@ -753,7 +761,7 @@ body  {
 	vertical-align:top;
 }
 #adminBannerLogo {
-	background:url(eaflogo_small.png);
+	background:url(images/eaflogo_small.png);
 	height:80px;
 	width:80px;
 	
@@ -769,7 +777,7 @@ body  {
 }
 
 #adminBanner {
-	background:url(horz.png) -0px -0px;
+	background:url(images/horz.png) -0px -0px;
 	background-repeat:repeat-x;
 
 	border-color:#557993;
@@ -782,6 +790,12 @@ body  {
 	overflow:hidden;
 	
 	position:relative;
+}
+#accountMenu {
+    width: 150px;
+    position: absolute;
+    right:0;
+    font-size:62.5%;
 }
 .button,.ui-autocomplete {
     font-size:62.5%;
@@ -831,7 +845,7 @@ border-bottom-left-radius:0px;
     margin-right:-160px;
     width:82% !important;
     display:inline-block;
-    background:#fff url("dollar.gif") no-repeat 5px center;
+    background:#fff url("images/dollar.gif") no-repeat 5px center;
 }
 .ui-icon-dollar {
     display:inline-block;
@@ -876,11 +890,11 @@ border-bottom-left-radius:0px;
 
 
 .notSelected{
-    background-image:url("greyRadio_bg.png") !important;
+    background-image:url("images/greyRadio_bg.png") !important;
     color:#fff;
 }
 .notSelected:hover{
-    background-image:url(greyRadio_bg_hover.png) !important;
+    background-image:url(images/greyRadio_bg_hover.png) !important;
 }
 
 div.ui-datepicker{

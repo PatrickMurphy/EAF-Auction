@@ -1,11 +1,4 @@
 <?php
-
-/**
- * @author 
- * @copyright 2013
- */
-
-
     class eaf_configuration{
         
         private $database;

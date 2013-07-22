@@ -42,3 +42,5 @@ Thumbs.db
 #######
 _notes/
 pull.php
+temp/
+admin/temp/

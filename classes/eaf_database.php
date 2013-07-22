@@ -123,6 +123,7 @@ class eaf_database {
 			
 			if($this->records > 0){
 				$this->ArrayResults();
+                mysql_data_seek($this->result, 0);
 				return $this->arrayedResult;
 			}else{
 				return true;
@@ -130,6 +131,7 @@ class eaf_database {
 			
 		}else{
 			$this->lastError = mysql_error($this->databaseLink);
+            echo('Error: ' . $this->lastError . '<br />' . 'Query: ' . $this->lastQuery);
 			return false;
 		}
 	}
@@ -274,8 +276,8 @@ class eaf_database {
 	
 	// 'Arrays' a single result
 	function ArrayResult(){
-		$this->arrayedResult = mysql_fetch_assoc($this->result) or die (mysql_error($this->databaseLink));
-		return $this->arrayedResult;
+	   $this->arrayedResult = mysql_fetch_assoc($this->result) or die('Error: ' . mysql_error($this->databaseLink));
+	   return $this->arrayedResult;
 	}
 
 	// 'Arrays' multiple result

@@ -1,19 +1,28 @@
 <?php
-if(!isset($_POST['username'])){
-    require_once('classes/eaf_database.php');
-    require_once('classes/eaf_configuration.php');
-    require_once('classes/eaf_user.php');
-    $database = new eaf_database('pmphotog_eaf', 'pmphotog_eaf', 'almostover13');
-    $config = new eaf_configuration($database);
-    $user = new eaf_user($database,$config);
+session_start();
+ob_start();
+error_reporting('E_ALL');
+require_once('classes/eaf_database.php');
+require_once('classes/eaf_configuration.php');
+require_once('classes/eaf_user.php');
+$database = new eaf_database('pmphotog_eaf', 'pmphotog_eaf', 'almostover13');
+$config = new eaf_configuration($database);
+$user = new eaf_user($database,$config);
     
-    if(isset($_POST['rememberMe']))
-        $remember = true;
-    else
-        $remember = false;
+if(isset($_POST['username'])){    
+    $formdata['username']   =   $_POST['username'];
+    $formdata['password']   =   $_POST['password'];
+    $formdata['rememberMe'] =   isset($_POST['rememberMe']);
+    $formdata['redirect']['condition']   =   isset($_POST['redirect']);
+    $formdata['redirect']['url'] = $_POST['redirect'];
     
-    $user->login($_POST['username'], $_POST['password'], $remember, urldecode($_GET['redirect']));
+    if(!$user->login($formdata))
+        echo('Error: Login not true');
 }
+if($_GET['debug']==1)
+    print_r($_SESSION);
+if($_GET['logout']==1)
+    $user->logout();
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
 
@@ -23,9 +32,9 @@ if(!isset($_POST['username'])){
 
 	<title>Login | EAF Auction | Alaska Airlines Employee Assistance Fund Annual Auction</title>
 
-	<script src="jquery-1.10.0.min.js"></script>
+	<script src="js/jquery-1.10.0.min.js"></script>
 
-	<script src="javascript.js" type="text/javascript" ></script>
+	<script src="js/javascript.js" type="text/javascript" ></script>
 
 	<link href="stylesheet.css" rel="stylesheet" type="text/css" />
 
@@ -83,8 +92,8 @@ if(!isset($_POST['username'])){
                 <input type="checkbox" name="rememberMe" /> Keep me logged in
                 </div>
                 <br style="clear:both;" />
-                <div><input class="bidNow" type="submit" style="border:0px;" value="Login" /></div></form>
-                <input type="hidden" name="redirect" value="<?php if(isset($_GET['redirect'])) echo $_GET['redirect']; else echo ''; ?>" />
+                <div><input class="bidNow" type="submit" style="border:0px;" value="Login" /></div>
+                <?php if(isset($_GET['redirect'])){?><input type="hidden" name="redirect" value="<? echo $_GET['redirect']; ?>" /><? } ?>
                 </form>
             </div>
         </div>
@@ -102,3 +111,6 @@ if(!isset($_POST['username'])){
 </body>
 
 </html>
+<?
+ob_end_flush();
+?>

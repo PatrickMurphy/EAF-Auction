@@ -6,9 +6,9 @@
 
 	<title>Alaska Airlines Employee Assistance Fund</title>
 
-	<script src="jquery-1.10.0.min.js"></script>
+	<script src="js/jquery-1.10.0.min.js"></script>
 
-	<script src="javascript.js" type="text/javascript" ></script>
+	<script src="js/javascript.js" type="text/javascript" ></script>
 
 	<link href="stylesheet.css" rel="stylesheet" type="text/css" />
 
@@ -58,17 +58,17 @@
 
 			<div id="hotItemGallery">
 
-				<div class="hotItemImage" id="url(hotdeal_1.png)"></div>
+				<div class="hotItemImage" id="url(images/hotdeal_1.png)"></div>
 
-				<div class="hotItemImage" id="url(hotdeal_3.png)"></div>
+				<div class="hotItemImage" id="url(images/hotdeal_3.png)"></div>
 
-				<div class="hotItemImage" id="url(hotdeal_2.png)"></div>
+				<div class="hotItemImage" id="url(images/hotdeal_2.png)"></div>
 
-				<div class="hotItemImage" id="url(hotdeal_4.png)"></div>
+				<div class="hotItemImage" id="url(images/hotdeal_4.png)"></div>
 
-				<div class="hotItemImage" id="url(hotdeal_5.png)"></div>
+				<div class="hotItemImage" id="url(images/hotdeal_5.png)"></div>
 
-				<div class="hotItemImage" id="url(hotdeal_6.png)"></div>
+				<div class="hotItemImage" id="url(images/hotdeal_6.png)"></div>
 
 				
 
